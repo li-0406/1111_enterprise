@@ -1,23 +1,27 @@
 <template>
   <div @click="closeNav">
-    <div
+    <!-- header -->
+    <header
       class="bg-white py-5 xs:px-4 s:px-6 m:px-8 l:pl-[150px] xl:pl-[300px] border-b-2"
     >
       <div class="flex justify-between l:justify-normal items-center relative">
         <!-- logo -->
-        <div>
-          <div class="flex mr-12">
-            <div
-              class="flex after:content-['|'] after:text-gray-200 after:mx-3"
-            >
-              <img src="../assets/images/logo.svg" alt="" />
-            </div>
+        <nuxt-link to="/">
+          <div class="cursor-pointer">
+            <div class="flex mr-12">
+              <div
+                class="flex after:content-['|'] after:text-gray-200 after:mx-3"
+              >
+                <img src="../assets/images/logo.svg" alt="" />
+              </div>
 
-            <img src="../assets/images/幸福企業.svg" alt="" />
+              <img src="../assets/images/幸福企業.svg" alt="" />
+            </div>
           </div>
-        </div>
+        </nuxt-link>
+
         <!-- 漢堡 -->
-        <div class="l:hidden">
+        <div class="l:hidden" @click.stop="openList = !openList">
           <svg
             width="14"
             height="12"
@@ -82,7 +86,10 @@
                     index != item.children.length - 1 && 'mb-6'
                   }  cursor-pointer text-gray-600 hover:text-black flex items-center gap-2 group`"
                 >
-                  {{ ch.name }}
+                  <nuxt-link :to="ch.page" @click="item.show = false">
+                    {{ ch.name }}</nuxt-link
+                  >
+
                   <svg
                     width="9"
                     height="8"
@@ -127,7 +134,7 @@
           />
         </div>
         <!-- 登入 -->
-        <div class="hidden l:flex items-center gap-1 ml-4 cursor-pointer">
+        <div class="hidden l:flex items-center gap-2 ml-4 cursor-pointer">
           <svg
             width="14"
             height="16"
@@ -139,14 +146,16 @@
               d="M7 8C8.06087 8 9.07828 7.57857 9.82843 6.82843C10.5786 6.07828 11 5.06087 11 4C11 2.93913 10.5786 1.92172 9.82843 1.17157C9.07828 0.421427 8.06087 0 7 0C5.93913 0 4.92172 0.421427 4.17157 1.17157C3.42143 1.92172 3 2.93913 3 4C3 5.06087 3.42143 6.07828 4.17157 6.82843C4.92172 7.57857 5.93913 8 7 8ZM5.57188 9.5C2.49375 9.5 0 11.9937 0 15.0719C0 15.5844 0.415625 16 0.928125 16H13.0719C13.5844 16 14 15.5844 14 15.0719C14 11.9937 11.5063 9.5 8.42813 9.5H5.57188Z"
               fill="#1A1A1A"
             />
-            <span>登入/註冊</span>
           </svg>
+          <span>登入/註冊</span>
         </div>
       </div>
-    </div>
+    </header>
     <!-- 斷點L以下 -->
-    <div
-      class="w-full bg-white px-6 py-7 rounded-b-3xl drop-shadow-lg absolute"
+    <header
+      class="w-full bg-white px-6 py-7 rounded-b-3xl drop-shadow-lg absolute l:hidden"
+      v-if="openList"
+      @click.stop
     >
       <!-- 搜尋 -->
       <div
@@ -173,28 +182,146 @@
           placeholder="搜尋企業、工作、報導"
         />
       </div>
-
+      <!-- nav -->
       <div class="flex flex-col gap-8 mt-8 pl-3">
         <div v-for="item in tag" :key="item.name">
-          <p>{{ item.name }}</p>
-          <div class="flex flex-col gap-8 mt-8">
-            <p
-              v-for="(ch, index) in item.children"
-              :key="index"
-              class="text-sm pl-1"
+          <p
+            :class="`${
+              item.show ? '' : 'text-gray-600'
+            } flex items-center gap-1`"
+            @click.stop="openChildren(item)"
+          >
+            {{ item.name }}
+            <svg
+              width="9"
+              height="5"
+              viewBox="0 0 14 8"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              v-if="item.show"
             >
-              {{ ch.name }}
-            </p>
+              <path
+                d="M6.29609 0.292969C6.68672 -0.0976562 7.32109 -0.0976562 7.71172 0.292969L13.7117 6.29297C14.1023 6.68359 14.1023 7.31797 13.7117 7.70859C13.3211 8.09922 12.6867 8.09922 12.2961 7.70859L7.00234 2.41484L1.70859 7.70547C1.31797 8.09609 0.683594 8.09609 0.292969 7.70547C-0.0976562 7.31484 -0.0976562 6.68047 0.292969 6.28984L6.29297 0.289844L6.29609 0.292969Z"
+                fill="black"
+              />
+            </svg>
+            <svg
+              width="9"
+              height="5"
+              viewBox="0 0 14 8"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              v-else
+            >
+              <path
+                d="M6.29609 7.70859C6.68672 8.09922 7.32109 8.09922 7.71172 7.70859L13.7117 1.70859C14.1023 1.31797 14.1023 0.683594 13.7117 0.292969C13.3211 -0.0976562 12.6867 -0.0976562 12.2961 0.292969L7.00234 5.58672L1.70859 0.296093C1.31797 -0.0945315 0.683594 -0.0945315 0.292969 0.296093C-0.0976562 0.686718 -0.0976562 1.32109 0.292969 1.71172L6.29297 7.71172L6.29609 7.70859Z"
+                fill="black"
+              />
+            </svg>
+          </p>
+          <div>
+            <div
+              v-if="item.show"
+              class="flex flex-col gap-8 mt-8 text-gray-600"
+            >
+              <p
+                v-for="(ch, index) in item.children"
+                :key="index"
+                class="text-sm pl-1"
+              >
+                {{ ch.name }}
+              </p>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+      <!-- 登入 -->
+      <div class="flex l:hidden items-center gap-2 pl-3 mt-8">
+        <svg
+          width="14"
+          height="16"
+          viewBox="0 0 14 16"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M7 8C8.06087 8 9.07828 7.57857 9.82843 6.82843C10.5786 6.07828 11 5.06087 11 4C11 2.93913 10.5786 1.92172 9.82843 1.17157C9.07828 0.421427 8.06087 0 7 0C5.93913 0 4.92172 0.421427 4.17157 1.17157C3.42143 1.92172 3 2.93913 3 4C3 5.06087 3.42143 6.07828 4.17157 6.82843C4.92172 7.57857 5.93913 8 7 8ZM5.57188 9.5C2.49375 9.5 0 11.9937 0 15.0719C0 15.5844 0.415625 16 0.928125 16H13.0719C13.5844 16 14 15.5844 14 15.0719C14 11.9937 11.5063 9.5 8.42813 9.5H5.57188Z"
+            fill="#646464"
+          />
+        </svg>
+        <span class="text-gray-600">登入/註冊</span>
+      </div>
+    </header>
     <slot />
+    <footer
+      class="bg-gray-800 w-full xs:px-4 s:px-6 m:px-8 l:px-[150px] xl:px-[300px] py-14"
+    >
+      <!-- logo -->
+      <nuxt-link to="/">
+        <div class="flex cursor-pointer">
+          <div class="flex after:content-['|'] after:text-gray-600 after:mx-3">
+            <img src="../assets/images/logo.svg" alt="" />
+          </div>
+          <img src="../assets/images/幸福企業.svg" alt="" />
+        </div>
+      </nuxt-link>
+
+      <!-- list -->
+      <div class="flex flex-col l:flex-row justify-between">
+        <div v-for="item in footerList" :key="item.name">
+          <h3 class="mb-5 text-gray-50 font-bold flex items-center gap-1 mt-7">
+            <svg
+              width="10"
+              height="10"
+              viewBox="0 0 10 10"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <circle cx="5" cy="5" r="4" stroke="#F6F6F6" stroke-width="2" />
+            </svg>
+
+            {{ item.name }}
+          </h3>
+          <div>
+            <p
+              v-for="(ch, index) in item.children"
+              :key="index"
+              :class="`${
+                index !== item.children.length - 1 && 'mb-2'
+              } text-sm text-gray-150 pl-4`"
+            >
+              {{ ch }}
+            </p>
+          </div>
+        </div>
+        <div class="flex items-end mt-5 m:mt-0 justify-end">
+          <div
+            class="w-12 h-12 bg-white rounded-full flex justify-center items-center cursor-pointer"
+          >
+            <svg
+              width="12"
+              height="14"
+              viewBox="0 0 12 14"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M6.70615 0.293701C6.31553 -0.0969238 5.68115 -0.0969238 5.29053 0.293701L0.290527 5.2937C-0.100098 5.68433 -0.100098 6.3187 0.290527 6.70933C0.681152 7.09995 1.31553 7.09995 1.70615 6.70933L4.9999 3.41245V13C4.9999 13.5531 5.44678 14 5.9999 14C6.55303 14 6.9999 13.5531 6.9999 13V3.41245L10.2937 6.7062C10.6843 7.09683 11.3187 7.09683 11.7093 6.7062C12.0999 6.31558 12.0999 5.6812 11.7093 5.29058L6.70928 0.290576L6.70615 0.293701Z"
+                fill="black"
+              />
+            </svg>
+          </div>
+        </div>
+      </div>
+      <p class="text-sm text-gray-150 mt-10 font-en">
+        © 1111 人力銀行 2024 幸福企業 All Rights Reserved.
+      </p>
+    </footer>
   </div>
 </template>
 
 <script setup>
-const tf = ref(false);
+const openList = ref(false);
 const tag = ref([
   {
     name: "年度盛事",
@@ -265,9 +392,17 @@ const tag = ref([
     ],
   },
 ]);
-
+const footerList = ref([
+  {
+    name: "關於幸福企業",
+    children: ["加入會員", "徵才刊登", "FB 粉絲團", "隱私權保護"],
+  },
+  { name: "幸福企業投票", children: ["活動說明", "歷屆得獎名單"] },
+  { name: "其他服務", children: ["科技島", "求職多國語系", "兼差打工"] },
+]);
 const closeNav = () => {
   tag.value.forEach((i) => (i.show = false));
+  openList.value = false;
 };
 
 const openChildren = (item) => {
