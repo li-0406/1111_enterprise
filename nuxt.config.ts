@@ -1,6 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  modules: ["@element-plus/nuxt"],
+  modules: ["@element-plus/nuxt", "@nuxtjs/google-fonts", "nuxt-swiper"],
   devtools: { enabled: true },
   css: ["~/assets/css/main.css"],
   postcss: {
@@ -8,5 +8,15 @@ export default defineNuxtConfig({
       tailwindcss: {},
       autoprefixer: {},
     },
+  },
+  googleFonts: {
+    families: {
+      // 指定您想要的字體
+      Roboto: true,
+      "Open+Sans": true,
+    },
+  },
+  swiper: {
+    modules: ["navigation", "pagination", "effect-creative"],
   },
 });

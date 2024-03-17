@@ -368,6 +368,7 @@ export default {
         "Times",
         "serif",
       ],
+
       mono: [
         "ui-monospace",
         "SFMono-Regular",
@@ -378,7 +379,17 @@ export default {
         '"Courier New"',
         "monospace",
       ],
-      en: ["Kanit"],
+      en: [
+        "kanit",
+        "Noto Sans TC",
+        "ui-sans-serif",
+        "system-ui",
+        "sans-serif",
+        "Apple Color Emoji",
+        "Segoe UI Emoji",
+        "Segoe UI Symbol",
+        "Noto Color Emoji",
+      ],
       ch: ["Noto Sans TC"],
     },
     fontSize: {

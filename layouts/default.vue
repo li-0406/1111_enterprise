@@ -76,7 +76,7 @@
             <div
               v-if="item.show"
               @click.stop
-              class="absolute top-8 bg-white py-5 pl-7 w-[164px] rounded-2xl drop-shadow-lg"
+              class="absolute top-8 bg-white py-5 pl-7 w-[164px] rounded-2xl drop-shadow-lg z-50"
             >
               <ul>
                 <li
