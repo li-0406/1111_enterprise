@@ -2,7 +2,12 @@
 export default defineNuxtConfig({
   modules: ["@element-plus/nuxt", "@nuxtjs/google-fonts", "nuxt-swiper"],
   devtools: { enabled: true },
-  css: ["~/assets/css/main.css"],
+  css: [
+    "~/assets/css/main.css",
+    "swiper/css",
+    "swiper/css/navigation",
+    "swiper/css/pagination",
+  ],
   postcss: {
     plugins: {
       tailwindcss: {},
@@ -16,7 +21,7 @@ export default defineNuxtConfig({
       "Open+Sans": true,
     },
   },
-  swiper: {
-    modules: ["navigation", "pagination", "effect-creative"],
-  },
+  // swiper: {
+  //   modules: ["navigation", "pagination", "effect-creative"],
+  // },
 });

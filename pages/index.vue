@@ -59,26 +59,66 @@
       <img src="@/assets/images/合作媒體.svg" alt="" class="mx-auto mt-10" />
     </div>
     <client-only>
-      <Swiper
-        :modules="[SwiperNavigation, SwiperEffectCreative]"
-        :slides-per-view="1"
-        :space-between="16"
-        :loop="true"
-      >
-        <SwiperSlide>Slide 1</SwiperSlide>
-        <SwiperSlide>Slide 2</SwiperSlide>
-        <SwiperSlide>Slide 3</SwiperSlide>
-        <SwiperSlide>Slide 4</SwiperSlide>
-      </Swiper>
+      <div class="pt-[120px]">
+        <h1 class="text-[40px] text-gray-900 font-bold text-center">
+          品牌報名類別
+        </h1>
+        <p class="text-gray-600 text-[18px] block text-center mb-14">
+          一份工作，一個選擇。一種感動，幸福一生。在這裡，找尋你的感動
+        </p>
+        <div class="px-[412px]">
+          <Swiper
+            :slides-per-view="7"
+            :effect="'creative'"
+            :modules="[SwiperNavigation]"
+            navigation
+            :space-between="40"
+          >
+            <SwiperSlide v-for="item in iconList" :key="item">
+              <div class="flex justify-center mb-3">
+                <img :src="item.img" alt="" />
+              </div>
+              <h3 class="text-center font-bold text-gray-600">
+                {{ item.name }}
+              </h3>
+            </SwiperSlide>
+          </Swiper>
+        </div>
+      </div>
     </client-only>
   </div>
 </template>
 
 <script setup>
 import homeBanner from "@/assets/images/homeBanner.png";
+import icon from "@/assets/images/homeBrand/Icon.svg";
+import icon1 from "@/assets/images/homeBrand/Icon-1.svg";
+import icon2 from "@/assets/images/homeBrand/Icon-2.svg";
+import icon3 from "@/assets/images/homeBrand/Icon-3.svg";
+import icon4 from "@/assets/images/homeBrand/Icon-4.svg";
+import icon5 from "@/assets/images/homeBrand/Icon-5.svg";
+import icon6 from "@/assets/images/homeBrand/Icon-6.svg";
+import icon7 from "@/assets/images/homeBrand/Icon-7.svg";
+import icon8 from "@/assets/images/homeBrand/Icon-8.svg";
+import icon9 from "@/assets/images/homeBrand/Icon-9.svg";
+import icon10 from "@/assets/images/homeBrand/Icon-10.svg";
 import { Countdown } from "vue3-flip-countdown";
 
 const bannerImg = ref([homeBanner, homeBanner, homeBanner]);
+
+const iconList = ref([
+  { img: icon, name: "一般生活服務" },
+  { img: icon1, name: "休閒娛樂服務" },
+  { img: icon2, name: "餐飲服務" },
+  { img: icon3, name: "飯店旅宿" },
+  { img: icon4, name: "大傳教育社福" },
+  { img: icon5, name: "金融管顧" },
+  { img: icon6, name: "科技/能源研發" },
+  { img: icon7, name: "生技醫療" },
+  { img: icon8, name: "製造業" },
+  { img: icon9, name: "貿易流通" },
+  { img: icon10, name: "營造建築" },
+]);
 </script>
 
 <style lang="scss" scoped>
@@ -119,6 +159,38 @@ const bannerImg = ref([homeBanner, homeBanner, homeBanner]);
       font-family: "Kanit";
       font-size: 16px;
     }
+  }
+
+  .swiper-button-prev,
+  .swiper-button-next {
+    width: 36px;
+    height: 36px;
+    background-color: #fff;
+    border-radius: 50%;
+    border: 1px solid #dedede;
+    cursor: pointer;
+  }
+  .swiper-button-prev {
+    background-image: url("../assets/images/leftArrow.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  .swiper-button-next {
+    background-image: url("../assets/images/rightArrow.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  .swiper-button-disabled {
+    width: 36px;
+    height: 36px;
+    background-color: #f6f6f6;
+    border-radius: 50%;
+    border: 1px solid #d2d2d2;
+  }
+  .swiper-button-prev::after,
+  .swiper-button-next::after {
+    display: none;
   }
 }
 </style>
