@@ -36,7 +36,7 @@
       >
     </div>
     <div
-      class="flex flex-col xl:flex-row items-center gap-4 xl:gap-24 justify-center mt-16 px-20 s:px-36 m:px-[282px] xl:px-[524px]"
+      class="flex flex-col xl:flex-row items-center gap-4 justify-between mt-16 px-20 s:px-36 m:px-[282px] xl:px-[524px]"
     >
       <span class="text-xl font-bold">投票倒數</span>
       <client-only>
@@ -66,7 +66,7 @@
         <p class="text-gray-600 text-[18px] block text-center mb-14">
           一份工作，一個選擇。一種感動，幸福一生。在這裡，找尋你的感動
         </p>
-        <div class="m:px-6 l:px-28 xl:px-[412px]">
+        <div class="px-6 m:px-6 l:px-28 xl:px-[412px]">
           <Swiper
             v-bind="swiperConfig"
             :slides-per-view="7"
@@ -88,14 +88,14 @@
       </div>
     </client-only>
 
-    <div class="pt-[240px]">
+    <div class="pt-[240px] xl:px-[300px]">
       <h1 class="text-[40px] text-gray-900 font-bold text-center">
         幸福企業，深入報導
       </h1>
       <p class="text-gray-600 text-[18px] block text-center mb-14">
         看見，更多背後的故事
       </p>
-      <div class="flex gap-6 xl:px-[300px]">
+      <div class="hidden s:flex gap-6 px-8">
         <div class="w-full">
           <div class="w-full relative">
             <img src="../assets/images/karen.png" alt="" class="rounded-3xl" />
@@ -136,13 +136,16 @@
             >
           </div>
         </div>
-        <div class="w-full">
+        <div class="w-full mt-12 l:mt-0">
           <div
             v-for="(item, index) in card"
             :key="item.title"
             :class="`${index == 1 && 'my-6 '} flex gap-4`"
           >
-            <img :src="item.img" alt="" class="w-[300px] rounded-3xl" />
+            <div class="w-full">
+              <img :src="item.img" alt="" class="w-full rounded-3xl" />
+            </div>
+
             <div class="w-full">
               <p class="text-sm text-gray-600">2023/10/02</p>
               <h2 class="text-[18px] font-bold mt-1">{{ item.title }}</h2>
@@ -159,6 +162,151 @@
           </div>
         </div>
       </div>
+      <div class="px-8 s:hidden">
+        <Swiper
+          :slides-per-view="1"
+          :effect="'creative'"
+          :modules="[SwiperNavigation, SwiperPagination]"
+          navigation
+          :space-between="40"
+        >
+          <SwiperSlide v-for="item in card" :key="item.title">
+            <div class="w-full">
+              <img :src="item.img" alt="" class="w-full rounded-3xl" />
+            </div>
+
+            <div class="w-full">
+              <p class="text-sm text-gray-600">2023/10/02</p>
+              <h2 class="text-[18px] font-bold mt-1">{{ item.title }}</h2>
+              <p class="text-gray-600 mt-2 mb-5">{{ item.text }}</p>
+              <span
+                v-for="(tg, index) in item.tag"
+                :key="index"
+                :class="`${
+                  index == 1 && 'mx-2'
+                } bg-secondary-150 px-3 py-1 rounded-full text-gray-600 text-[13px] inline-block`"
+                >{{ tg }}</span
+              >
+            </div>
+          </SwiperSlide>
+        </Swiper>
+      </div>
+
+      <div class="flex justify-center pt-20 pb-32">
+        <p class="flex items-center gap-2 text-primary-500 cursor-pointer">
+          看更多新聞<svg
+            width="13"
+            height="12"
+            viewBox="0 0 13 12"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M12.7086 6.70859C13.0992 6.31797 13.0992 5.68359 12.7086 5.29297L7.70859 0.292969C7.31797 -0.0976562 6.68359 -0.0976562 6.29297 0.292969C5.90234 0.683594 5.90234 1.31797 6.29297 1.70859L10.5867 6.00234L6.29609 10.2961C5.90547 10.6867 5.90547 11.3211 6.29609 11.7117C6.68672 12.1023 7.32109 12.1023 7.71172 11.7117L12.7117 6.71172L12.7086 6.70859ZM1.70859 11.7086L6.70859 6.70859C7.09922 6.31797 7.09922 5.68359 6.70859 5.29297L1.70859 0.292969C1.31797 -0.0976562 0.683594 -0.0976562 0.292969 0.292969C-0.0976562 0.683594 -0.0976562 1.31797 0.292969 1.70859L4.58672 6.00234L0.296094 10.2961C-0.0945313 10.6867 -0.0945313 11.3211 0.296094 11.7117C0.686719 12.1023 1.32109 12.1023 1.71172 11.7117L1.70859 11.7086Z"
+              fill="#E2605E"
+            />
+          </svg>
+        </p>
+      </div>
+    </div>
+
+    <div class="w-full bg-white pt-32 px-8 xl:px-[412px]">
+      <h1 class="text-[40px] text-gray-900 font-bold text-center">幸福職缺</h1>
+      <p class="text-gray-600 text-[18px] block text-center mb-14">
+        探索屬於你的幸福企業，從對的選擇開始！
+      </p>
+
+      <div class="hidden s:grid grid-cols-2 gap-4">
+        <div
+          v-for="item in jobList"
+          :key="item.title"
+          class="rounded-[30px] p-[2px] drop"
+          style="
+            background-image: linear-gradient(
+              136.77deg,
+              #ffffff 0%,
+              #f7ede4 101.14%
+            );
+          "
+        >
+          <div class="bg-white px-8 py-6 h-full rounded-[30px]">
+            <div class="flex gap-3">
+              <div class="w-20 h-20 border rounded-[20px] overflow-hidden">
+                <img
+                  :src="item.logo"
+                  alt=""
+                  class="w-full h-full object-contain"
+                />
+              </div>
+              <div>
+                <h1 class="text-xl font-bold">{{ item.title }}</h1>
+                <p class="text-gray-600">{{ item.company }}</p>
+                <p class="text-gray-600">
+                  {{ item.address }} |
+                  <span class="text-primary-500">{{ item.salary }}</span>
+                </p>
+              </div>
+            </div>
+            <p class="text-gray-400">{{ item.text }}</p>
+            <div class="flex justify-end">
+              <button class="bg-primary-500 rounded-full text-white px-4 py-1">
+                應徵
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="s:hidden">
+        <Swiper
+          :slides-per-view="1"
+          :effect="'creative'"
+          :modules="[SwiperNavigation, SwiperPagination]"
+          navigation
+          :space-between="40"
+        >
+          <SwiperSlide v-for="item in jobList" :key="item.title">
+            <div
+              class="rounded-[30px] p-[2px]"
+              style="
+                background-image: linear-gradient(
+                  136.77deg,
+                  #ffffff 0%,
+                  #f7ede4 101.14%
+                );
+              "
+            >
+              <div class="bg-white px-8 py-6 h-full rounded-[30px]">
+                <div class="flex gap-3">
+                  <div class="w-20 h-20 border rounded-[20px] overflow-hidden">
+                    <img
+                      :src="item.logo"
+                      alt=""
+                      class="w-full h-full object-contain"
+                    />
+                  </div>
+                  <div>
+                    <h1 class="text-xl font-bold">{{ item.title }}</h1>
+                    <p class="text-gray-600">{{ item.company }}</p>
+                    <p class="text-gray-600">
+                      {{ item.address
+                      }}<span class="text-primary-500">{{ item.salary }}</span>
+                    </p>
+                  </div>
+                </div>
+                <p class="text-gray-400">{{ item.text }}</p>
+                <div class="flex justify-end">
+                  <button
+                    class="bg-primary-500 rounded-full text-white px-4 py-1"
+                  >
+                    應徵
+                  </button>
+                </div>
+              </div>
+            </div>
+          </SwiperSlide>
+        </Swiper>
+      </div>
+
       <div class="flex justify-center pt-20 pb-32">
         <p class="flex items-center gap-2 text-primary-500 cursor-pointer">
           看更多新聞<svg
@@ -246,6 +394,56 @@ const card = ref([
     title: "重視人才價值 特雷維科技以幸福職場守護員工",
     text: "Trevi 粉紅芭比主題迎新party。圖/特雷維科技 TREVI特雷維科技為全球性遊戲開發工作室，產品開發在Web及App上，專注於創",
     tag: ["#TREVI特雷維科技", "#幸福企業2023", "#企業報導"],
+  },
+]);
+const jobList = reactive([
+  {
+    title: "品牌企劃(台北內湖)13.5個月月薪+2次分紅",
+    company: "冠軍建材股份有限公司 | 陶瓷製品製造",
+    address: "台北市內湖區",
+    salary: "面議",
+    text: "1.品牌行銷策略2.產品組合管理&企劃3.品牌廣宣規劃與推廣活動4.產品推廣POSM&通路活動規畫5.市場資料蒐集與產品銷售分析6.其他主管交辦事項。",
+    logo: "https://happiness-cms.1111.com.tw/images/0/0/MjAyNDAyMjEvS0tSVDFI",
+  },
+  {
+    title: "教保員/幼兒園老師",
+    company: "忠信文教機構 | 學前教育事業",
+    address: "高雄市鳳山區",
+    salary: "月薪 30,000 至 42,000 元",
+    text: "1.協助幼兒學習自理生活。2.提供幼兒日常生活的照顧。3.維護幼兒在園所之安全。4.教授幼兒課程。5.配合幼兒發展狀況，設",
+    logo: "https://happiness-cms.1111.com.tw/images/0/0/MjAyNDAyMjEvT3hDdDhQ",
+  },
+  {
+    title: "幼兒園_園長/副園長_新北市",
+    company: "吉的堡教育集團_吉的堡網路科技股份有限公司",
+    address: "新北市三重區",
+    salary: "月薪 53,000 至 75,000 元",
+    text: "1.幼兒園行政及教務管理2.招生及各項園務活動舉辦3.擅長親師溝通及危機處理4.校園人員培育與訓練5.個性積極主動6.五年以上",
+    logo: "	https://happiness-cms.1111.com.tw/images/0/0/MjAyNDAyMjEvbktrT0JK",
+  },
+  {
+    title: "商品規劃PM",
+    company: "綠茵生技股份有限公司 | 生化科技研發",
+    address: "台中市北區",
+    salary: "面議",
+    text: "1.市場情資蒐集及產業趨勢分析 2.保健食品原料市場規劃與推廣3.產品專案規劃執行與成效報告 4.產品教育訓練課程規劃及教案",
+    logo: "	https://happiness-cms.1111.com.tw/images/0/0/MjAyNDAyMjAvc0tHVTBF",
+  },
+  {
+    title: "1-MA儲備幹部 (全省各縣市培訓計劃)",
+    company: "巨匠電腦股份有限公司(巨匠電腦 / 巨匠美語)",
+    address: "台北市中正區",
+    salary: "月薪 30,000 至 60,000 元",
+    text: "詳情可連結 巨匠教育集團：https://www.gjunedu.com.tw/1、電腦/外語 課程介紹規劃，客戶關懷服務。2、親和力佳，具有服",
+    logo: "https://happiness-cms.1111.com.tw/images/0/0/MjAyNDAyMTkvdDl5ekNm",
+  },
+  {
+    title: "證券營業員[經紀部]",
+    company: "第一金證券股份有限公司 | 證券╱期貨╱基金",
+    address: "台北市中山區",
+    salary: "月薪 28,000 元 以上",
+    text: "◎ 辦理有價證券及期貨之受託買賣◎ 辦理複委託買賣海外商品業務◎ 拓展業務及開發客戶◎ 共同行銷展業",
+    logo: "https://happiness-cms.1111.com.tw/images/0/0/MjAyNDAyMjEvZEhEZjZ0",
   },
 ]);
 
@@ -343,5 +541,9 @@ watchEffect(() => {
   .swiper-button-next::after {
     display: none;
   }
+}
+
+.drop {
+  box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.1);
 }
 </style>

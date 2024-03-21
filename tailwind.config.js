@@ -888,7 +888,7 @@ export default {
       s: "768px",
       m: "1024px",
       l: "1440px",
-      xl: "1920px",
+      xl: "1850px",
     },
     scrollMargin: ({ theme }) => ({
       ...theme("spacing"),
