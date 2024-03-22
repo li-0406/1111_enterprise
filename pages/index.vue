@@ -4,10 +4,18 @@
       trigger="click"
       :height="carouselHeight"
       arrow="never"
-      class="w-full mx-auto"
+      class="pt-10 px-10"
     >
       <el-carousel-item v-for="(item, index) in bannerImg" :key="index">
-        <img :src="item" alt="" class="mx-auto" />
+        <img :src="item" alt="" class="rounded-3xl mx-auto" />
+        <!-- <div
+            class="bg-center bg-no-repeat rounded-xl"
+            :style="{
+              'background-image': 'url(' + item + ')',
+              'border-radius': '20px',
+              height: carouselHeight,
+            }"
+          ></div> -->
       </el-carousel-item>
     </el-carousel>
     <div class="w-full mt-14 px-8 s:px-36 m:px-48 xl:px-[524px]">
@@ -360,7 +368,11 @@ const swiperConfig = ref({
     },
   },
 });
-const bannerImg = ref([homeBanner, homeBanner, homeBanner]);
+const bannerImg = ref([
+  "https://happiness-cms.1111.com.tw/images/0/0/MjAyNDAyMTkveDRsQTdm",
+  "https://happiness-cms.1111.com.tw/images/0/0/MjAyNDAyMTkvRjRGbGdx",
+  "https://happiness-cms.1111.com.tw/images/0/0/MjAyNDAyMTkvVmVEOUxk",
+]);
 
 const iconList = ref([
   { img: icon, name: "一般生活服務" },
@@ -457,15 +469,19 @@ const useWindowWidth = () => {
   return windowWidth;
 };
 
-const carouselHeight = ref("300px");
+const carouselHeight = ref("500px");
 const windowWidth = useWindowWidth();
 watchEffect(() => {
   if (windowWidth.value < 768) {
-    carouselHeight.value = "150px";
+    carouselHeight.value = "93px";
   } else if (windowWidth.value < 1024) {
-    carouselHeight.value = "200px";
+    carouselHeight.value = "195px";
+  } else if (windowWidth.value < 1440) {
+    carouselHeight.value = "260px";
+  } else if (windowWidth.value < 1850) {
+    carouselHeight.value = "400px";
   } else {
-    carouselHeight.value = "300px";
+    carouselHeight.value = "500px";
   }
 });
 </script>

@@ -2,9 +2,11 @@
   <div @click="closeNav">
     <!-- header -->
     <header
-      class="bg-white py-5 xs:px-4 s:px-6 m:px-8 l:pl-[150px] xl:pl-[300px] border-b-2"
+      class="bg-white py-5 border-b-2 xs:pl-4 s:pl-6 m:pl-8 xs:pr-8 s:pr-10 m:pr-12"
     >
-      <div class="flex justify-between l:justify-normal items-center relative">
+      <div
+        class="flex justify-between l:justify-normal items-center relative container mx-auto max-w-screen-w"
+      >
         <!-- logo -->
         <nuxt-link to="/">
           <div class="cursor-pointer">
@@ -36,7 +38,7 @@
           </svg>
         </div>
         <!-- nav -->
-        <div class="gap-20 hidden l:flex">
+        <div class="gap-10 hidden l:flex">
           <div v-for="item in tag" :key="item.name" class="relative">
             <p
               :class="`${
@@ -110,7 +112,7 @@
         </div>
         <!-- 搜尋框 -->
         <div
-          class="bg-gray-50 hidden l:flex gap-2 items-center justify-center py-2 px-5 rounded-full l:ml-[48px] xl:ml-[228px]"
+          class="bg-gray-50 hidden l:flex gap-2 items-center justify-center py-2 px-5 rounded-full l:ml-[48px] xl:ml-[200px]"
         >
           <div>
             <svg
