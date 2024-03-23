@@ -299,6 +299,7 @@
         <div class="flex items-end mt-5 m:mt-0 justify-end">
           <div
             class="w-12 h-12 bg-white rounded-full flex justify-center items-center cursor-pointer"
+            @click="scrollToTop"
           >
             <svg
               width="12"
@@ -412,6 +413,13 @@ const openChildren = (item) => {
 
   tag.value.forEach((i) => {
     i.name === item.name ? (i.show = !i.show) : (i.show = false);
+  });
+};
+
+const scrollToTop = () => {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
   });
 };
 </script>

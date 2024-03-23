@@ -55,49 +55,550 @@
         </div>
       </div>
     </div>
-    <div class="grid grid-cols-2 gap-6 container mx-auto max-w-screen-w pt-20">
-      <div
-        class="rounded-[30px] p-[2px] card"
-        style="
-          background-image: linear-gradient(
-            136.77deg,
-            #ffffff 0%,
-            #f7ede4 101.14%
-          );
-        "
+
+    <div
+      class="grid grid-cols-2 gap-6 container mx-auto max-w-screen-w pt-20 pb-24"
+    >
+      <!-- 01 -->
+      <div>
+        <div
+          class="rounded-[30px] p-[2px] card"
+          style="
+            background-image: linear-gradient(
+              136.77deg,
+              #ffffff 0%,
+              #f7ede4 101.14%
+            );
+          "
+        >
+          <div class="bg-white rounded-3xl flex justify-between p-16 relative">
+            <div class="flex gap-5">
+              <h1 class="text-3xl text-secondary-500 font-bold">
+                {{ cardData[0].num }}
+              </h1>
+              <div>
+                <h1 class="text-xl mb-3 font-bold">{{ cardData[0].title }}</h1>
+                <p class="text-lg text-gray-800">
+                  報名時間：<span class="text-primary-500">{{
+                    cardData[0].time
+                  }}</span>
+                </p>
+                <p class="text-lg text-gray-800 mt-3" v-show="cardData[0].open">
+                  報名方式：<span class="text-gray-600">{{
+                    cardData[0].manner
+                  }}</span>
+                </p>
+                <div class="flex mt-3" v-show="cardData[0].open">
+                  <p class="text-lg text-gray-800 text-nowrap">報名說明：</p>
+                  <p class="text-gray-600 text-lg">
+                    {{ cardData[0].illustrate }}
+                  </p>
+                </div>
+              </div>
+            </div>
+            <button
+              class="border rounded-full px-7 py-2 flex gap-2 items-center absolute right-[64px]"
+              @click="cardData[0].open = !cardData[0].open"
+            >
+              <svg
+                v-if="cardData[0].open"
+                width="14"
+                height="3"
+                viewBox="0 0 14 3"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M14 1.5C14 2.05313 13.5531 2.5 13 2.5H1C0.446875 2.5 0 2.05313 0 1.5C0 0.946875 0.446875 0.5 1 0.5H13C13.5531 0.5 14 0.946875 14 1.5Z"
+                  fill="#1A1A1A"
+                />
+              </svg>
+              <svg
+                v-else
+                width="14"
+                height="15"
+                viewBox="0 0 14 15"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M8.07692 1.57692C8.07692 0.98125 7.59567 0.5 7 0.5C6.40433 0.5 5.92308 0.98125 5.92308 1.57692V6.42308H1.07692C0.48125 6.42308 0 6.90433 0 7.5C0 8.09567 0.48125 8.57692 1.07692 8.57692H5.92308V13.4231C5.92308 14.0188 6.40433 14.5 7 14.5C7.59567 14.5 8.07692 14.0188 8.07692 13.4231V8.57692H12.9231C13.5188 8.57692 14 8.09567 14 7.5C14 6.90433 13.5188 6.42308 12.9231 6.42308H8.07692V1.57692Z"
+                  fill="#1A1A1A"
+                />
+              </svg>
+
+              {{ cardData[0].open ? "收合" : "展開" }}
+            </button>
+          </div>
+        </div>
+      </div>
+      <!-- 02 -->
+      <div>
+        <div
+          class="rounded-[30px] p-[2px] card"
+          style="
+            background-image: linear-gradient(
+              136.77deg,
+              #ffffff 0%,
+              #f7ede4 101.14%
+            );
+          "
+        >
+          <div class="bg-white rounded-3xl flex justify-between p-16 relative">
+            <div class="flex gap-5">
+              <h1 class="text-3xl text-secondary-500 font-bold">
+                {{ cardData[1].num }}
+              </h1>
+              <div>
+                <h1 class="text-xl mb-3 font-bold">{{ cardData[1].title }}</h1>
+                <p class="text-lg text-gray-800">
+                  票選時間：<span class="text-primary-500">{{
+                    cardData[1].time
+                  }}</span>
+                </p>
+                <div class="flex gap-6 mt-3" v-show="cardData[1].open">
+                  <p class="text-lg text-gray-800 text-nowrap">投票獎勵：</p>
+                  <div>
+                    <ul class="text-gray-600 list-decimal text-lg">
+                      <li>
+                        主辦單位將於票選時間 每週一至週五 天天抽
+                        <span class="text-primary-500">10名 500元</span>
+                        幸運兒。
+                      </li>
+                      <li>
+                        凡參與投票活動之網友皆具有抽獎資格，但每人限兌領乙次。凡參與投票活動之網友皆具有抽獎資格，但每人限兌領乙次。
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="flex gap-6 mt-3" v-show="cardData[1].open">
+                  <p class="text-lg text-gray-800 text-nowrap">兌領方式：</p>
+                  <div>
+                    <ul class="text-gray-600 list-decimal text-lg">
+                      <li>
+                        每日中獎結果詳見
+                        <span class="text-primary-500">活動網頁</span>
+                        (中獎者須主動聯絡負責窗口，1111人力銀行不另行通知)
+                      </li>
+                      <li>
+                        兌領時間為 05/10(五) ~
+                        09/06(五)，逾期未兌領視同放棄恕不接受個人因素補領。
+                      </li>
+                      <li>
+                        中獎人須依中華民國機會中獎相關規範提供個人資料以利兌領。
+                      </li>
+                      <li>1111人力銀行保有活動修改及最終解釋權。</li>
+                      <li>
+                        有關中獎兌領事宜，請洽 (02) 8787-1111 #8869 李先生。
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <button
+              class="border rounded-full px-7 py-2 flex gap-2 items-center absolute right-[64px]"
+              @click="cardData[1].open = !cardData[1].open"
+            >
+              <svg
+                v-if="cardData[1].open"
+                width="14"
+                height="3"
+                viewBox="0 0 14 3"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M14 1.5C14 2.05313 13.5531 2.5 13 2.5H1C0.446875 2.5 0 2.05313 0 1.5C0 0.946875 0.446875 0.5 1 0.5H13C13.5531 0.5 14 0.946875 14 1.5Z"
+                  fill="#1A1A1A"
+                />
+              </svg>
+              <svg
+                v-else
+                width="14"
+                height="15"
+                viewBox="0 0 14 15"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M8.07692 1.57692C8.07692 0.98125 7.59567 0.5 7 0.5C6.40433 0.5 5.92308 0.98125 5.92308 1.57692V6.42308H1.07692C0.48125 6.42308 0 6.90433 0 7.5C0 8.09567 0.48125 8.57692 1.07692 8.57692H5.92308V13.4231C5.92308 14.0188 6.40433 14.5 7 14.5C7.59567 14.5 8.07692 14.0188 8.07692 13.4231V8.57692H12.9231C13.5188 8.57692 14 8.09567 14 7.5C14 6.90433 13.5188 6.42308 12.9231 6.42308H8.07692V1.57692Z"
+                  fill="#1A1A1A"
+                />
+              </svg>
+
+              {{ cardData[1].open ? "收合" : "展開" }}
+            </button>
+          </div>
+        </div>
+      </div>
+      <!-- 03 -->
+      <div>
+        <div
+          class="rounded-[30px] p-[2px] card"
+          style="
+            background-image: linear-gradient(
+              136.77deg,
+              #ffffff 0%,
+              #f7ede4 101.14%
+            );
+          "
+        >
+          <div class="bg-white rounded-3xl flex justify-between p-16 relative">
+            <div class="flex gap-5">
+              <h1 class="text-3xl text-secondary-500 font-bold">
+                {{ cardData[2].num }}
+              </h1>
+              <div>
+                <h1 class="text-xl mb-3 font-bold">{{ cardData[2].title }}</h1>
+                <p class="text-lg text-gray-800">
+                  評選時間：<span class="text-primary-500">{{
+                    cardData[2].time
+                  }}</span>
+                </p>
+                <div class="flex mt-3" v-show="cardData[2].open">
+                  <p class="text-lg text-gray-800 text-nowrap">評選說明：</p>
+                  <p class="text-gray-600 text-lg">
+                    {{ cardData[2].illustrate }}
+                  </p>
+                </div>
+              </div>
+            </div>
+            <button
+              class="border rounded-full px-7 py-2 flex gap-2 items-center absolute right-[64px]"
+              @click="cardData[2].open = !cardData[2].open"
+            >
+              <svg
+                v-if="cardData[2].open"
+                width="14"
+                height="3"
+                viewBox="0 0 14 3"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M14 1.5C14 2.05313 13.5531 2.5 13 2.5H1C0.446875 2.5 0 2.05313 0 1.5C0 0.946875 0.446875 0.5 1 0.5H13C13.5531 0.5 14 0.946875 14 1.5Z"
+                  fill="#1A1A1A"
+                />
+              </svg>
+              <svg
+                v-else
+                width="14"
+                height="15"
+                viewBox="0 0 14 15"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M8.07692 1.57692C8.07692 0.98125 7.59567 0.5 7 0.5C6.40433 0.5 5.92308 0.98125 5.92308 1.57692V6.42308H1.07692C0.48125 6.42308 0 6.90433 0 7.5C0 8.09567 0.48125 8.57692 1.07692 8.57692H5.92308V13.4231C5.92308 14.0188 6.40433 14.5 7 14.5C7.59567 14.5 8.07692 14.0188 8.07692 13.4231V8.57692H12.9231C13.5188 8.57692 14 8.09567 14 7.5C14 6.90433 13.5188 6.42308 12.9231 6.42308H8.07692V1.57692Z"
+                  fill="#1A1A1A"
+                />
+              </svg>
+
+              {{ cardData[2].open ? "收合" : "展開" }}
+            </button>
+          </div>
+        </div>
+      </div>
+      <!-- 04 -->
+      <div>
+        <div
+          class="rounded-[30px] p-[2px] card"
+          style="
+            background-image: linear-gradient(
+              136.77deg,
+              #ffffff 0%,
+              #f7ede4 101.14%
+            );
+          "
+        >
+          <div class="bg-white rounded-3xl flex justify-between p-16 relative">
+            <div class="flex gap-5">
+              <h1 class="text-3xl text-secondary-500 font-bold">
+                {{ cardData[3].num }}
+              </h1>
+              <div>
+                <h1 class="text-xl mb-3 font-bold">{{ cardData[3].title }}</h1>
+                <p class="text-lg text-gray-800">
+                  公告時間：<span class="text-primary-500">{{
+                    cardData[3].time
+                  }}</span>
+                </p>
+
+                <p class="text-lg text-gray-800 mt-3" v-show="cardData[3].open">
+                  頒獎典禮：<span class="text-primary-500">{{
+                    cardData[3].awards
+                  }}</span>
+                </p>
+              </div>
+            </div>
+            <button
+              class="border rounded-full px-7 py-2 flex gap-2 items-center absolute right-[64px]"
+              @click="cardData[3].open = !cardData[3].open"
+            >
+              <svg
+                v-if="cardData[3].open"
+                width="14"
+                height="3"
+                viewBox="0 0 14 3"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M14 1.5C14 2.05313 13.5531 2.5 13 2.5H1C0.446875 2.5 0 2.05313 0 1.5C0 0.946875 0.446875 0.5 1 0.5H13C13.5531 0.5 14 0.946875 14 1.5Z"
+                  fill="#1A1A1A"
+                />
+              </svg>
+              <svg
+                v-else
+                width="14"
+                height="15"
+                viewBox="0 0 14 15"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M8.07692 1.57692C8.07692 0.98125 7.59567 0.5 7 0.5C6.40433 0.5 5.92308 0.98125 5.92308 1.57692V6.42308H1.07692C0.48125 6.42308 0 6.90433 0 7.5C0 8.09567 0.48125 8.57692 1.07692 8.57692H5.92308V13.4231C5.92308 14.0188 6.40433 14.5 7 14.5C7.59567 14.5 8.07692 14.0188 8.07692 13.4231V8.57692H12.9231C13.5188 8.57692 14 8.09567 14 7.5C14 6.90433 13.5188 6.42308 12.9231 6.42308H8.07692V1.57692Z"
+                  fill="#1A1A1A"
+                />
+              </svg>
+
+              {{ cardData[3].open ? "收合" : "展開" }}
+            </button>
+          </div>
+        </div>
+      </div>
+      <!-- 評選流程暨占比 -->
+      <div class="col-start-1 col-end-3">
+        <div
+          class="rounded-[30px] p-[2px] card"
+          style="
+            background-image: linear-gradient(
+              136.77deg,
+              #ffffff 0%,
+              #f7ede4 101.14%
+            );
+          "
+        >
+          <div class="bg-white rounded-3xl flex justify-between p-16 relative">
+            <div class="flex gap-5">
+              <div>
+                <h1 class="text-xl mb-3 font-bold">{{ cardData[4].title }}</h1>
+
+                <div class="flex gap-6 mt-3" v-show="cardData[4].open">
+                  <p class="text-lg text-gray-800 text-nowrap">評選說明：</p>
+                  <div>
+                    <ul class="text-gray-600 list-decimal text-lg">
+                      <li v-for="item in cardData[4].illustrate" :key="item">
+                        {{ item }}
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <button
+              class="border rounded-full px-7 py-2 flex gap-2 items-center absolute right-[64px]"
+              @click="cardData[4].open = !cardData[4].open"
+            >
+              <svg
+                v-if="cardData[4].open"
+                width="14"
+                height="3"
+                viewBox="0 0 14 3"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M14 1.5C14 2.05313 13.5531 2.5 13 2.5H1C0.446875 2.5 0 2.05313 0 1.5C0 0.946875 0.446875 0.5 1 0.5H13C13.5531 0.5 14 0.946875 14 1.5Z"
+                  fill="#1A1A1A"
+                />
+              </svg>
+              <svg
+                v-else
+                width="14"
+                height="15"
+                viewBox="0 0 14 15"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M8.07692 1.57692C8.07692 0.98125 7.59567 0.5 7 0.5C6.40433 0.5 5.92308 0.98125 5.92308 1.57692V6.42308H1.07692C0.48125 6.42308 0 6.90433 0 7.5C0 8.09567 0.48125 8.57692 1.07692 8.57692H5.92308V13.4231C5.92308 14.0188 6.40433 14.5 7 14.5C7.59567 14.5 8.07692 14.0188 8.07692 13.4231V8.57692H12.9231C13.5188 8.57692 14 8.09567 14 7.5C14 6.90433 13.5188 6.42308 12.9231 6.42308H8.07692V1.57692Z"
+                  fill="#1A1A1A"
+                />
+              </svg>
+
+              {{ cardData[4].open ? "收合" : "展開" }}
+            </button>
+          </div>
+        </div>
+      </div>
+      <!-- 活動小組聯繫人 -->
+      <div class="col-start-1 col-end-3">
+        <div
+          class="rounded-[30px] p-[2px] card"
+          style="
+            background-image: linear-gradient(
+              136.77deg,
+              #ffffff 0%,
+              #f7ede4 101.14%
+            );
+          "
+        >
+          <div class="bg-white rounded-3xl flex justify-between p-16 relative">
+            <div class="flex gap-5">
+              <div>
+                <h1 class="text-xl mb-3 font-bold">{{ cardData[5].title }}</h1>
+
+                <div class="flex gap-6 mt-3" v-show="cardData[5].open">
+                  <div class="grid grid-cols-2">
+                    <p
+                      v-for="item in cardData[5].illustrate"
+                      :key="item"
+                      class="text-gray-600 text-lg"
+                    >
+                      {{ item }}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <button
+              class="border rounded-full px-7 py-2 flex gap-2 items-center absolute right-[64px]"
+              @click="cardData[5].open = !cardData[5].open"
+            >
+              <svg
+                v-if="cardData[5].open"
+                width="14"
+                height="3"
+                viewBox="0 0 14 3"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M14 1.5C14 2.05313 13.5531 2.5 13 2.5H1C0.446875 2.5 0 2.05313 0 1.5C0 0.946875 0.446875 0.5 1 0.5H13C13.5531 0.5 14 0.946875 14 1.5Z"
+                  fill="#1A1A1A"
+                />
+              </svg>
+              <svg
+                v-else
+                width="14"
+                height="15"
+                viewBox="0 0 14 15"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M8.07692 1.57692C8.07692 0.98125 7.59567 0.5 7 0.5C6.40433 0.5 5.92308 0.98125 5.92308 1.57692V6.42308H1.07692C0.48125 6.42308 0 6.90433 0 7.5C0 8.09567 0.48125 8.57692 1.07692 8.57692H5.92308V13.4231C5.92308 14.0188 6.40433 14.5 7 14.5C7.59567 14.5 8.07692 14.0188 8.07692 13.4231V8.57692H12.9231C13.5188 8.57692 14 8.09567 14 7.5C14 6.90433 13.5188 6.42308 12.9231 6.42308H8.07692V1.57692Z"
+                  fill="#1A1A1A"
+                />
+              </svg>
+
+              {{ cardData[5].open ? "收合" : "展開" }}
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container mx-auto pt-14 max-w-screen-w px-4">
+      <h1
+        class="text-[40px] s:text-5xl flex gap-3 font-bold text-gray-900 mb-5"
       >
-        <div class="bg-white rounded-3xl flex justify-between p-16 relative">
-          <div class="flex gap-5">
-            <h1 class="text-3xl text-secondary-500 font-bold">
-              {{ cardData[0].num }}
-            </h1>
-            <div>
-              <h1 class="text-xl mb-3 font-bold">{{ cardData[0].title }}</h1>
-              <p class="text-lg text-gray-800">
-                報名時間：<span class="text-primary-500">{{
-                  cardData[0].time
-                }}</span>
-              </p>
+        知名品牌<span
+          ><svg
+            width="36"
+            height="26"
+            viewBox="0 0 36 26"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M35.5 16.125C35.5 21.3047 31.3047 25.5 26.125 25.5H25.5C24.1172 25.5 23 24.3828 23 23C23 21.6172 24.1172 20.5 25.5 20.5H26.125C28.5391 20.5 30.5 18.5391 30.5 16.125V15.5H25.5C22.7422 15.5 20.5 13.2578 20.5 10.5V5.5C20.5 2.74219 22.7422 0.5 25.5 0.5H30.5C33.2578 0.5 35.5 2.74219 35.5 5.5V8V10.5V16.125ZM15.5 16.125C15.5 21.3047 11.3047 25.5 6.125 25.5H5.5C4.11719 25.5 3 24.3828 3 23C3 21.6172 4.11719 20.5 5.5 20.5H6.125C8.53906 20.5 10.5 18.5391 10.5 16.125V15.5H5.5C2.74219 15.5 0.5 13.2578 0.5 10.5V5.5C0.5 2.74219 2.74219 0.5 5.5 0.5H10.5C13.2578 0.5 15.5 2.74219 15.5 5.5V8V10.5V16.125Z"
+              fill="#D9A479"
+            />
+          </svg>
+        </span>
+      </h1>
+      <div class="l:grid grid-cols-2">
+        <span class="text-xl text-gray-600"
+          >出發吧！一切美好的生活，都從對的選擇開始。</span
+        >
+      </div>
+
+      <div class="grid grid-cols-3 gap-6 mt-16">
+        <div
+          v-for="item in brandCard"
+          :key="item.title"
+          class="rounded-[20px] overflow-hidden"
+          style="box-shadow: 0px 4px 8px 0px #00000014"
+        >
+          <div class="w-full h-40">
+            <img :src="item.pic" alt="" class="h-full w-full object-cover" />
+          </div>
+          <div class="bg-white p-6">
+            <h1 class="text-lg font-bold">{{ item.title }}</h1>
+            <p class="text-secondary-500 flex items-center gap-2 my-3">
+              {{ item.address
+              }}<svg
+                width="12"
+                height="16"
+                viewBox="0 0 12 16"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M6.7194 15.1667C8.27799 13.2161 11.8327 8.48872 11.8327 5.83333C11.8327 2.61285 9.21983 0 5.99935 0C2.77886 0 0.166016 2.61285 0.166016 5.83333C0.166016 8.48872 3.7207 13.2161 5.2793 15.1667C5.65299 15.6315 6.3457 15.6315 6.7194 15.1667ZM5.99935 3.88889C6.51505 3.88889 7.00962 4.09375 7.37428 4.4584C7.73893 4.82306 7.94379 5.31764 7.94379 5.83333C7.94379 6.34903 7.73893 6.84361 7.37428 7.20826C7.00962 7.57292 6.51505 7.77778 5.99935 7.77778C5.48365 7.77778 4.98907 7.57292 4.62442 7.20826C4.25976 6.84361 4.0549 6.34903 4.0549 5.83333C4.0549 5.31764 4.25976 4.82306 4.62442 4.4584C4.98907 4.09375 5.48365 3.88889 5.99935 3.88889Z"
+                  fill="#D9A479"
+                />
+              </svg>
+            </p>
+            <p
+              v-for="t in item.text"
+              :key="t"
+              class="text-gray-600 mt-2 truncate"
+            >
+              {{ t }}
+            </p>
+            <div class="flex justify-end mt-3">
+              <button
+                class="border rounded-full px-4 py-2 flex gap-2 items-center hover:bg-gray-50"
+              >
+                更多職缺
+                <svg
+                  width="14"
+                  height="12"
+                  viewBox="0 0 14 12"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M13.7063 6.70615C14.0969 6.31553 14.0969 5.68115 13.7063 5.29053L8.70625 0.290527C8.31563 -0.100098 7.68125 -0.100098 7.29063 0.290527C6.9 0.681152 6.9 1.31553 7.29063 1.70615L10.5875 4.9999H1C0.446875 4.9999 0 5.44678 0 5.9999C0 6.55303 0.446875 6.9999 1 6.9999H10.5844L7.29375 10.2937C6.90312 10.6843 6.90312 11.3187 7.29375 11.7093C7.68437 12.0999 8.31875 12.0999 8.70938 11.7093L13.7094 6.70928L13.7063 6.70615Z"
+                    fill="#1A1A1A"
+                  />
+                </svg>
+              </button>
             </div>
           </div>
-          <button
-            class="border rounded-full px-7 py-2 flex gap-1 items-center absolute right-[64px]"
-          >
-            <svg
-              width="14"
-              height="15"
-              viewBox="0 0 14 15"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M8.07692 1.57692C8.07692 0.98125 7.59567 0.5 7 0.5C6.40433 0.5 5.92308 0.98125 5.92308 1.57692V6.42308H1.07692C0.48125 6.42308 0 6.90433 0 7.5C0 8.09567 0.48125 8.57692 1.07692 8.57692H5.92308V13.4231C5.92308 14.0188 6.40433 14.5 7 14.5C7.59567 14.5 8.07692 14.0188 8.07692 13.4231V8.57692H12.9231C13.5188 8.57692 14 8.09567 14 7.5C14 6.90433 13.5188 6.42308 12.9231 6.42308H8.07692V1.57692Z"
-                fill="#1A1A1A"
-              />
-            </svg>
-            展開
-          </button>
         </div>
+      </div>
+
+      <div class="flex justify-end pt-[68px] pb-[128px]">
+        <p class="flex items-center gap-2 text-primary-500 cursor-pointer">
+          其他知名品牌<svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M18.7086 12.7086C19.0992 12.318 19.0992 11.6836 18.7086 11.293L13.7086 6.29297C13.318 5.90234 12.6836 5.90234 12.293 6.29297C11.9023 6.68359 11.9023 7.31797 12.293 7.70859L16.5867 12.0023L12.2961 16.2961C11.9055 16.6867 11.9055 17.3211 12.2961 17.7117C12.6867 18.1023 13.3211 18.1023 13.7117 17.7117L18.7117 12.7117L18.7086 12.7086ZM7.70859 17.7086L12.7086 12.7086C13.0992 12.318 13.0992 11.6836 12.7086 11.293L7.70859 6.29297C7.31797 5.90234 6.68359 5.90234 6.29297 6.29297C5.90234 6.68359 5.90234 7.31797 6.29297 7.70859L10.5867 12.0023L6.29609 16.2961C5.90547 16.6867 5.90547 17.3211 6.29609 17.7117C6.68672 18.1023 7.32109 18.1023 7.71172 17.7117L7.70859 17.7086Z"
+              fill="#E2605E"
+            />
+          </svg>
+        </p>
       </div>
     </div>
   </div>
@@ -119,6 +620,7 @@ const cardData = reactive([
     manner: "線上填寫表單",
     illustrate:
       "因收到貴企業被推舉或主動報名之資訊，因此溫馨提醒後續排程如下。若企業廠商違反幸福職場原則或資料檢附不齊，主辦單位保有下架參賽品牌之權力。",
+    open: false,
   },
   {
     num: "02",
@@ -135,6 +637,7 @@ const cardData = reactive([
       "1111人力銀行保有活動修改及最終解釋權。",
       "有關中獎兌領事宜，請洽 (02) 8787-1111 #8869 李先生。",
     ],
+    open: false,
   },
   {
     num: "03",
@@ -142,11 +645,14 @@ const cardData = reactive([
     time: "08/16 (五) ~ 08/31 (六)",
     illustrate:
       "1111 人力銀行有超過 800萬求職會員，透過大數據撈取履歷上現職或曾在該企業服務的會員，寄發電子問卷給會員填寫，針對各品牌福利落實程度進行回覆。",
+    open: false,
   },
   {
     num: "04",
+    title: "公布結果",
     time: "09/12 (四)",
-    awards: "09/12 (四)",
+    awards: "11/11 (一)",
+    open: false,
   },
   {
     title: "評選流程暨占比",
@@ -158,6 +664,7 @@ const cardData = reactive([
       "評選過程將邀集 11類指標性產官學專家，來共同響應活動參任顧問團，強化活動的專業度與公正性。",
       "若企業廠商違反幸福職場原則或資料檢附不齊，主辦單位保有下架參賽品牌之權力。",
     ],
+    open: false,
   },
   {
     title: "活動小組聯繫人",
@@ -167,6 +674,63 @@ const cardData = reactive([
       "劉小姐： (02) 8787-1111 #8935 / Mine_Liu@staff.1111.com.tw",
       "謝小姐： (02) 8787-1111 #8939 / joycehsueh@staff.1111.com.tw",
     ],
+    open: false,
+  },
+]);
+const brandCard = reactive([
+  {
+    title: "凱林鐵板燒",
+    address: "台北市中山區",
+    text: [
+      "外場服務人員 ( 凱林鐵板燒 台北101店 )",
+      "外場服務人員 ( 中壢大江店 )",
+    ],
+    pic: "https://s3-alpha-sig.figma.com/img/4a51/8f23/22c5103f01626d1e1252c6a98e97e7f2?Expires=1711929600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=cksZ7bC-gagJOBB9ZFmVqh8NqqxDCAfPMaMzzqN3Zv1pT6oeA3IldPe2IefCOHJCzxVlKM~gVQyNScwRRDotqqEpM67JjDd98mpvsShmG9HIV92JCEYBYDDcibOCYsAvbTFuAX7IWgKVNs8AwmECvGueTvuYWS32Yns1~Wc8ymSJAui1P0Gb9t3TlZjhvbW48PqdEzwxaRFh7eAY4MmQqNOT7m-0bbVpcmytJHN3TlYTXpWWBsZpUoVKBM~t2OD-BBxt91cU7Z8nT8rpKUdOAnnBTYHDIFNxORgzOjBSyPNjjiL9b0jj4LvDFW3mR86M-UzlK5r8cepsrACfTPI0kA__",
+  },
+  {
+    title: "愛德利亞台灣股份有限公司",
+    address: "台北市大安區",
+    text: [
+      "LOWRYS FARM 全職服飾銷售人員",
+      "LOWRYS FARM 全職服飾銷售人員全職服飾銷售人員(北區專員)",
+    ],
+    pic: "https://s3-alpha-sig.figma.com/img/934b/4b16/16c9d8c29a1f7689fba255d749f69c4f?Expires=1711929600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=ckEJ8fYQqwEKZyiQTDLx-6jhHvf2lwBJVFerX2~UCgfyj9krtDYwnQOsdN30xk3F-BcHpwt0ytjZodDrM~E8pQ2aSjfzrP6tNZVTi6WUYiMQGRAmNiUoxC47ru6rOussUOiyqBA-Va9JRw1YhiN21x9woirMJIB5q6Izu3gzJPskS~E84iA4GfH-edKiJVdCv9SwHkRedYEu-oe3cPUYDpIgXPANkvToKyUgzpTcR057TW~QfYg1V56IJWk6wePZOpC14-xh6D2yUGOztfaEvTSZ0tpZbkfVXLhJ0OgxXI0ZK845IBnmlN3Z8BF2JklJQNmOL5B51WiUa2~rEHveWg__",
+  },
+  {
+    title: "三商電腦股份有限公司",
+    address: "台北市信義區",
+    text: [
+      "外勤維護工程師・工服事業部北區服務處北一服務課",
+      "維護工程師 ．工服事業部中區服務處新竹服務課",
+    ],
+    pic: "https://s3-alpha-sig.figma.com/img/5244/03e5/20a7479341730ecadd74a79953033abc?Expires=1711929600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=XSlOUNtuBTDdwNcIGQUhz7KRqkXMTFh9BKpSOWy0bE2qyhGZGJhEvN34Yk8s6khj5D3eL~dYY~nchVes8xSvi~jQMndgtXbINYMGr5loo8Kf-HoW5pB-~DLp2eeE8ik4yf8wtFFjtf3hz8aiEKEJRTAwyk1GAdmVCT7NV~9ezR5BNU6STh2ARGkwAO33pZsQD7xtIEnNDOJe6C3KiUcIMRStN-ppRSCJLaZvSBy9769WN3Ezbnr4YqmPMdlYP6Vw~V1AdnGDCZeKQwbpXQSe-7vwiyXjSvdoWG81q85a6vZjZFCyC4kwcAp9GKdQHfUrXytaUbMETtQVHmjacJNrZA__",
+  },
+  {
+    title: "瑞嘉軟體科技股份有限公司",
+    address: "台北市內湖區",
+    text: [
+      "Engineer Assistant / 工程師助理",
+      "Senior Product Manager / 資深產品經理",
+    ],
+    pic: "https://s3-alpha-sig.figma.com/img/e9b0/25e9/5a0c5740b6485a6eeac7bc9747d3b6d6?Expires=1711929600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=WYx~CBhjS2atcCRJI0Bq5rer2Rm6ouhTi8ry9M7ZGKptse~64gENZ8Qvt46gPe465qCgaEIdSlySyXdbrl42QmTqjB9O5VVDagyCaxbwbZ~J9TBrF78A~PvGWeNe0GZ4wHoyDPf3xDdYMzEmGtQk-8OjbQIwtcJWmx0LmZS-V7dBF87GdJqL6jrgvEDyg3~61AjkfHR-kTSKKipvDcp636JfXkycdKFoBOphlvqOjx5lekq3~FjH-qgnLHRuUxy9OGlH2X9htvSXz4uCrqVuoKqrEhiBXlS1s5f7cYtoEOoG5qEHagk04OVmkG36KY5h~CjPzthlL-4sY02YJSG2Zw__",
+  },
+  {
+    title: "微風廣場實業股份有限公司",
+    address: "台北市大安區",
+    text: [
+      "外場服務人員 / 儲備幹部 / 副店長 /店長",
+      "內場廚助 / 廚師 / 副主廚 / 主廚",
+    ],
+    pic: "https://s3-alpha-sig.figma.com/img/a675/eb0c/28f93bfda456b78fb8ef64d1e5d7ccd9?Expires=1711929600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=pFNvEbPhVJqsLtFTHNNkxy~ZpGL7cTn9qKtckIRyZwiJkVR3SbrjUVkA81~L8eiIHPAifw1c17WKDIVXVJXmc5xEggYH-ziBSjTL3iuj3C73xLlWXlHPo9K2ELXYjYL8DThqXDmYk5Y7veHQNoQNrk6CdQNdmR4PEh~UMUjsgkes3MAGHqmdy4reUJ3cec4iD07mkkLBDIt7ODkrgjy4XPW7SW8RUgh17QXXDft8qbKC5MJSd9UxCh9a0xX6Xqsgk9P8uBNuVDAJV8b-Hul3tLyy-xZodD4FuQgCHFEthW2sRt8TURnzfRl9FRc7Sm7EJEWvyncdl2~sZySI-yLf7A__",
+  },
+  {
+    title: "樂子國際股份有限公司",
+    address: "台北市中山區",
+    text: [
+      "【樂子南港店－外場正職】月薪32,000起",
+      "【樂子信義店－內場廚師】月薪46,000起",
+    ],
+    pic: "https://s3-alpha-sig.figma.com/img/bc62/aa7b/4d83d42e08954f483a5d02fbd7153727?Expires=1711929600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=nzHiPj4rhAr-A2wPBjsFjVuHgyYznV2gYMu0A418as0V7MlVIjjJeceI60uZY7CGcSeAY97s8CGCxF3rXjcmuNbBmH7VsTN~bSX-JnDmcE90Pn7TUjO8Pu5owV4ffCuKlo9ZddO15eVbt3SbNRJHimTVr2I09DecJnPo8GvANm4Us2VlM0KFvd3-lBex3QO5InaSM7opJFyXOknXPEU4waeK0h-Zn2K6jUty53ALwOd51lIf342WA~Zivo8coW7fMvaiaUfbR~WKvsJeSFcd6LyOAKpw2sZOr4zneV8qMJagOm7B0EHV3Q9Nn9mi-HbxAaMBU-iyyjLYd-TO2qhbgA__",
   },
 ]);
 </script>
