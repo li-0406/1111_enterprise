@@ -57,10 +57,10 @@
     </div>
 
     <div
-      class="grid grid-cols-2 gap-6 container mx-auto max-w-screen-w pt-20 pb-24"
+      class="grid grid-cols-2 gap-6 container mx-auto max-w-screen-w pt-20 pb-24 m:px-8 l:px-0"
     >
       <!-- 01 -->
-      <div>
+      <div class="col-span-2 l:col-span-1">
         <div
           class="rounded-[30px] p-[2px] card"
           style="
@@ -71,7 +71,9 @@
             );
           "
         >
-          <div class="bg-white rounded-3xl flex justify-between p-16 relative">
+          <div
+            class="bg-white rounded-3xl flex justify-between px-4 s:px-6 m:px-16 py-9 m:py-12 l:py-16 relative"
+          >
             <div class="flex gap-5">
               <h1 class="text-3xl text-secondary-500 font-bold">
                 {{ cardData[0].num }}
@@ -97,7 +99,7 @@
               </div>
             </div>
             <button
-              class="border rounded-full px-7 py-2 flex gap-2 items-center absolute right-[64px]"
+              class="border rounded-full px-7 py-2 flex gap-2 items-center absolute right-[16px] s:right-[24px] m:right-[64px]"
               @click="cardData[0].open = !cardData[0].open"
             >
               <svg
@@ -133,7 +135,7 @@
         </div>
       </div>
       <!-- 02 -->
-      <div>
+      <div class="col-span-2 l:col-span-1">
         <div
           class="rounded-[30px] p-[2px] card"
           style="
@@ -144,7 +146,9 @@
             );
           "
         >
-          <div class="bg-white rounded-3xl flex justify-between p-16 relative">
+          <div
+            class="bg-white rounded-3xl flex justify-between px-4 s:px-6 m:px-16 py-9 m:py-12 l:py-16 relative"
+          >
             <div class="flex gap-5">
               <h1 class="text-3xl text-secondary-500 font-bold">
                 {{ cardData[1].num }}
@@ -198,7 +202,7 @@
               </div>
             </div>
             <button
-              class="border rounded-full px-7 py-2 flex gap-2 items-center absolute right-[64px]"
+              class="border rounded-full px-7 py-2 flex gap-2 items-center absolute right-[16px] s:right-[24px] m:right-[64px]"
               @click="cardData[1].open = !cardData[1].open"
             >
               <svg
@@ -234,7 +238,7 @@
         </div>
       </div>
       <!-- 03 -->
-      <div>
+      <div class="col-span-2 l:col-span-1">
         <div
           class="rounded-[30px] p-[2px] card"
           style="
@@ -245,7 +249,9 @@
             );
           "
         >
-          <div class="bg-white rounded-3xl flex justify-between p-16 relative">
+          <div
+            class="bg-white rounded-3xl flex justify-between px-4 s:px-6 m:px-16 py-9 m:py-12 l:py-16 relative"
+          >
             <div class="flex gap-5">
               <h1 class="text-3xl text-secondary-500 font-bold">
                 {{ cardData[2].num }}
@@ -266,7 +272,7 @@
               </div>
             </div>
             <button
-              class="border rounded-full px-7 py-2 flex gap-2 items-center absolute right-[64px]"
+              class="border rounded-full px-7 py-2 flex gap-2 items-center absolute right-[16px] s:right-[24px] m:right-[64px]"
               @click="cardData[2].open = !cardData[2].open"
             >
               <svg
@@ -302,7 +308,7 @@
         </div>
       </div>
       <!-- 04 -->
-      <div>
+      <div class="col-span-2 l:col-span-1">
         <div
           class="rounded-[30px] p-[2px] card"
           style="
@@ -313,7 +319,9 @@
             );
           "
         >
-          <div class="bg-white rounded-3xl flex justify-between p-16 relative">
+          <div
+            class="bg-white rounded-3xl flex justify-between px-4 s:px-6 m:px-16 py-9 m:py-12 l:py-16 relative"
+          >
             <div class="flex gap-5">
               <h1 class="text-3xl text-secondary-500 font-bold">
                 {{ cardData[3].num }}
@@ -334,7 +342,7 @@
               </div>
             </div>
             <button
-              class="border rounded-full px-7 py-2 flex gap-2 items-center absolute right-[64px]"
+              class="border rounded-full px-7 py-2 flex gap-2 items-center absolute right-[16px] s:right-[24px] m:right-[64px]"
               @click="cardData[3].open = !cardData[3].open"
             >
               <svg
@@ -370,7 +378,7 @@
         </div>
       </div>
       <!-- 評選流程暨占比 -->
-      <div class="col-start-1 col-end-3">
+      <div class="col-span-2">
         <div
           class="rounded-[30px] p-[2px] card"
           style="
@@ -381,7 +389,9 @@
             );
           "
         >
-          <div class="bg-white rounded-3xl flex justify-between p-16 relative">
+          <div
+            class="bg-white rounded-3xl flex justify-between px-4 s:px-6 m:px-16 py-9 m:py-12 l:py-16 relative"
+          >
             <div class="flex gap-5">
               <div>
                 <h1 class="text-xl mb-3 font-bold">{{ cardData[4].title }}</h1>
@@ -399,7 +409,7 @@
               </div>
             </div>
             <button
-              class="border rounded-full px-7 py-2 flex gap-2 items-center absolute right-[64px]"
+              class="border rounded-full px-7 py-2 flex gap-2 items-center absolute right-[16px] s:right-[24px] m:right-[64px]"
               @click="cardData[4].open = !cardData[4].open"
             >
               <svg
@@ -435,7 +445,7 @@
         </div>
       </div>
       <!-- 活動小組聯繫人 -->
-      <div class="col-start-1 col-end-3">
+      <div class="col-span-2">
         <div
           class="rounded-[30px] p-[2px] card"
           style="
@@ -446,13 +456,15 @@
             );
           "
         >
-          <div class="bg-white rounded-3xl flex justify-between p-16 relative">
-            <div class="flex gap-5">
+          <div
+            class="bg-white rounded-3xl flex justify-between px-4 s:px-6 m:px-16 py-9 m:py-12 l:py-16 relative"
+          >
+            <div class="flex gap-5 flex-wrap">
               <div>
                 <h1 class="text-xl mb-3 font-bold">{{ cardData[5].title }}</h1>
 
                 <div class="flex gap-6 mt-3" v-show="cardData[5].open">
-                  <div class="grid grid-cols-2">
+                  <div class="grid grid-cols-1 l:grid-cols-2">
                     <p
                       v-for="item in cardData[5].illustrate"
                       :key="item"
@@ -465,7 +477,7 @@
               </div>
             </div>
             <button
-              class="border rounded-full px-7 py-2 flex gap-2 items-center absolute right-[64px]"
+              class="border rounded-full px-7 py-2 flex gap-2 items-center absolute right-[16px] s:right-[24px] m:right-[64px]"
               @click="cardData[5].open = !cardData[5].open"
             >
               <svg
@@ -527,7 +539,7 @@
         >
       </div>
 
-      <div class="grid grid-cols-3 gap-6 mt-16">
+      <div class="grid grid-cols-1 m:grid-cols-2 l:grid-cols-3 gap-6 mt-16">
         <div
           v-for="item in brandCard"
           :key="item.title"
