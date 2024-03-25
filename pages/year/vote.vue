@@ -1,6 +1,6 @@
 <template>
   <div class="bg-gradient-to-br from-white to-secondary-100">
-    <div class="container mx-auto pt-14 max-w-screen-w px-4">
+    <div class="container mx-auto pt-14 max-w-screen-w">
       <h1
         class="text-[40px] s:text-5xl flex gap-3 font-bold text-gray-900 mb-5"
       >
@@ -171,12 +171,13 @@
           </div>
         </div>
       </div>
-      <div class="pt-20 pb-32">
+      <div class="pt-20 pb-32 px-9 s:px-10 m:px-12">
         <Swiper
           v-bind="swiperConfigv2"
           :effect="'creative'"
           :modules="[SwiperNavigation, SwiperPagination]"
           navigation
+          :space-between="24"
         >
           <SwiperSlide v-for="item in ad" :key="item">
             <img
@@ -315,5 +316,38 @@ const swiperConfigv2 = ref({
 <style lang="scss" scoped>
 .back {
   box-shadow: 0px 0px 20px 0px #0000000d;
+}
+::v-deep {
+  .swiper-button-prev,
+  .swiper-button-next {
+    width: 36px;
+    height: 36px;
+    background-color: #fff;
+    border-radius: 50%;
+    border: 1px solid #dedede;
+    cursor: pointer;
+  }
+  .swiper-button-prev {
+    background-image: url("@/assets/images/leftArrow.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  .swiper-button-next {
+    background-image: url("@/assets/images/rightArrow.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  .swiper-button-disabled {
+    width: 36px;
+    height: 36px;
+    background-color: #f6f6f6;
+    border-radius: 50%;
+    border: 1px solid #d2d2d2;
+  }
+  .swiper-button-prev::after,
+  .swiper-button-next::after {
+    display: none;
+  }
 }
 </style>
