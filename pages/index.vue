@@ -107,18 +107,6 @@
         <div class="w-full">
           <div class="w-full relative">
             <img src="../assets/images/karen.png" alt="" class="rounded-3xl" />
-            <!-- <div
-              class="w-0 h-0 absolute"
-              style="
-                width: 0;
-                height: 0;
-                border-style: solid;
-                border-width: 0 32px 32px 0;
-                border-color: transparent #f8f0e9 transparent transparent;
-                top: 0;
-                right: 0;
-              "
-            ></div> -->
           </div>
           <div class="mt-6">
             <p class="text-sm text-gray-600">2023/10/02</p>
