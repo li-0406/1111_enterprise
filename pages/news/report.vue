@@ -76,6 +76,7 @@
           >{{ item }}</span
         >
       </div>
+      <!-- 企業報導 -->
       <div class="border-b pl-3 flex justify-between items-center">
         <div class="border-b-4 border-black">
           <h1 class="text-3xl font-bold">企業報導</h1>
@@ -96,25 +97,26 @@
           </svg>
         </span>
       </div>
-      <!-- content1 -->
-      <div class="hidden s:flex gap-6 pt-12">
+
+      <div class="hidden s:block l:flex gap-6 pt-12">
         <div class="w-full">
           <div class="w-full relative">
             <img
-              src="https://s3-alpha-sig.figma.com/img/c89c/5120/8bd7075c364f8b695272dec24a45ef90?Expires=1712534400&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=iNy9reJdW5dP8774FT80SX8hxliHGO5EshaDvxIDxbGPNV0oxWGAK~wxhymmw6Ksa~MT04rn2dsXflRPViGiWpWYXgcYrdxYuCqOvx270SQMAqQ3NiNlaOVxfIFFvX1IYLPrYC8r39kX8thbPQ4mvtgxzYBMsXgbKDjIJ8NMb3nIL5FERYkhuSrcYXDPQQkoGMCcRJFgywRGilspe~7rx1NKQ-TotSpuDqoAQ0edZmQvx8EhRjT0yj-~YN9nt7CzMqE6yUcc9NNAdMaD6B3YnlmYtXW-RjRtib226nb0fQSyWc5NzWdKe4VcOT5TPVnsekfikl4yeBdz3SaGiJpXKQ__"
+              src="https://happiness-cms.1111.com.tw/images/0/0/MjAyNDAyMTkvTFN3Vm1B"
               alt=""
               class="rounded-3xl"
             />
           </div>
           <div class="mt-6">
-            <p class="text-sm text-gray-600">2023/10/02</p>
+            <p class="text-sm text-gray-600">2024/02/01</p>
             <h2 class="text-[18px] font-bold mt-1">
-              高薪徵才！專業廚師6.5至8萬 儲備店長月薪上看10萬
+              臺灣港務公司　打造「人才永續 幸福職場」
             </h2>
-            <p class="text-gray-600 mt-2 mb-5">
-              凱林鐵板燒創辦人廖定閎，以「衛生、服務、品質、人情味」信念款待顧客。
-              廖定閎是第一代台灣鐵板燒師傅，凱林鐵板燒（Karen
-              Teppanyaki）的品牌創辦人，曾經在台灣首間高級鐵板燒「新濱」與五星級「來來飯店」經過主廚的歷練，擁有逾30年中西餐料理專研的資歷，改良研發出特有台灣人口
+            <p class="text-primary-500 underline mt-1 mb-3">
+              臺灣港務股份有限公司
+            </p>
+            <p class="text-gray-600 mt-2 mb-5 line-clamp-3">
+              「解決員工的問題，即是解決公司的問題」，港務公司實踐友善職場的決心，並不是僅停留在言辭上，而是通過一系列具體的措施，融入至企業的DNA之中。讓幸福成為日常，不僅能對員工的生活產生積極的影響，更能讓員工能全心、安心、放心的投入工作，「我好你好、共同美好」，造就港務公司「共好」的企業文化。
             </p>
             <span
               class="bg-secondary-150 px-3 py-1 rounded-full text-gray-600 text-[13px] inline-block"
@@ -126,24 +128,30 @@
             >
             <span
               class="bg-secondary-150 px-3 py-1 rounded-full text-gray-600 text-[13px] inline-block"
-              >#凱林鐵板燒</span
+              >#台灣港務公司</span
             >
           </div>
         </div>
-        <div class="w-full mt-12 l:mt-0">
-          <div
-            v-for="(item, index) in card"
-            :key="item.title"
-            :class="`${index == 1 && 'my-6 '} flex gap-4`"
-          >
-            <div class="w-full">
-              <img :src="item.img" alt="" class="w-full rounded-3xl" />
+        <div class="w-full s:mt-12 l:mt-0 grid grid-cols-2 gap-10">
+          <div v-for="item in card" :key="item.title">
+            <div class="w-full h-48">
+              <img
+                :src="item.img"
+                alt=""
+                class="w-full h-full rounded-3xl object-cover"
+              />
             </div>
 
-            <div class="w-full">
+            <div class="mt-5">
               <p class="text-sm text-gray-600">2023/10/02</p>
               <h2 class="text-[18px] font-bold mt-1">{{ item.title }}</h2>
-              <p class="text-gray-600 mt-2 mb-5">{{ item.text }}</p>
+              <p class="text-primary-500 underline mt-1 mb-3">
+                {{ item.company }}
+              </p>
+              <p class="text-gray-600 mt-2 mb-5 line-clamp-3">
+                {{ item.text }}
+              </p>
+
               <span
                 v-for="(tg, index) in item.tag"
                 :key="index"
@@ -156,21 +164,153 @@
           </div>
         </div>
       </div>
-      <!-- AD -->
-      <div class="py-20 px-9 s:px-10 m:px-12 l:px-0">
+
+      <div class="s:hidden pt-7">
         <Swiper
-          v-bind="swiperConfigv2"
+          :slides-per-view="1"
           :effect="'creative'"
           :modules="[SwiperNavigation, SwiperPagination]"
           navigation
-          :space-between="24"
+          :space-between="40"
         >
-          <SwiperSlide v-for="item in ad" :key="item">
-            <img
-              :src="item"
-              alt=""
-              class="w-[628px] h-[300px] object-cover mx-auto rounded-[20px]"
+          <SwiperSlide v-for="item in card" :key="item.title">
+            <div class="w-full h-48">
+              <img
+                :src="item.img"
+                alt=""
+                class="w-full h-full rounded-3xl object-cover"
+              />
+            </div>
+
+            <div class="mt-5">
+              <p class="text-sm text-gray-600">2023/10/02</p>
+              <h2 class="text-[18px] font-bold mt-1">{{ item.title }}</h2>
+              <p class="text-primary-500 underline mt-1 mb-3">
+                {{ item.company }}
+              </p>
+              <p class="text-gray-600 mt-2 mb-5 line-clamp-3">
+                {{ item.text }}
+              </p>
+
+              <span
+                v-for="(tg, index) in item.tag"
+                :key="index"
+                :class="`${
+                  index == 1 && 'mx-2'
+                } bg-secondary-150 px-3 py-1 rounded-full text-gray-600 text-[13px] inline-block`"
+                >{{ tg }}</span
+              >
+            </div>
+          </SwiperSlide>
+        </Swiper>
+      </div>
+      <!-- ESG報導 -->
+      <div class="border-b pl-3 flex justify-between items-center pt-24">
+        <div class="border-b-4 border-black">
+          <h1 class="text-3xl font-bold">ESG報導</h1>
+        </div>
+
+        <span class="text-gray-500 flex items-center gap-2"
+          >更多新聞<svg
+            width="8"
+            height="14"
+            viewBox="0 0 8 14"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M7.70859 6.29609C8.09922 6.68672 8.09922 7.32109 7.70859 7.71172L1.70859 13.7117C1.31797 14.1023 0.683594 14.1023 0.292969 13.7117C-0.0976562 13.3211 -0.0976562 12.6867 0.292969 12.2961L5.58672 7.00234L0.296094 1.70859C-0.0945313 1.31797 -0.0945313 0.683594 0.296094 0.292969C0.686719 -0.0976562 1.32109 -0.0976562 1.71172 0.292969L7.71172 6.29297L7.70859 6.29609Z"
+              fill="#646464"
             />
+          </svg>
+        </span>
+      </div>
+
+      <div class="hidden s:block l:flex gap-6 pt-12 pb-32">
+        <div class="w-full">
+          <div class="w-full relative">
+            <div
+              class="w-full h-1/3 bg-gradient-to-b from-transparent to-black z-1 absolute rounded-3xl bottom-0"
+            ></div>
+            <img
+              src="https://s3-alpha-sig.figma.com/img/5d4e/7c76/2fa2da94c0d807c028daa16aaab7cd7a?Expires=1712534400&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=XxtJJBpDCgGoGYtNY2uWrpJECxLZ8a88EII4Evet6Bw3lNMWcVSaGw8NI13UGPSpMQTbzDn-5Usw3vy7QGKwzqz1IismoirChZPeYLQjdveTI7Fg~UQs4Ykb4xICVNRIf2o05woaTlwl7W87~fbrVrfyJLLjJKVbNDOUNfJn9FnHXVnC8zCyeZq8aGUMgButI3zNZMcUAI2JmdNCthb6pWxtKQ4PltxZ-dRmJJTbKrkqVhok1m~3rPQRR4aPNkTEQkohpe3WfNHS1~OS17X1WIc2YctpYNPkxdwZofx~DiMda9RGrlUmtQSAh4LaiCZ7dGySOnp~HnLlv4mGSiI9Kg__"
+              alt=""
+              class="rounded-3xl w-full"
+            />
+            <div class="absolute bottom-7 left-8">
+              <p class="text-sm text-white">2023/10/02</p>
+              <h2 class="text-white text-[18px] font-bold mt-1 mb-3">
+                新光保全打造員工關懷為核心的健康職場環境
+              </h2>
+              <span
+                class="bg-secondary-150 px-3 py-1 rounded-full text-gray-600 text-[13px] inline-block"
+                >#企業報導</span
+              >
+              <span
+                class="bg-secondary-150 px-3 py-1 rounded-full text-gray-600 text-[13px] inline-block mx-2"
+                >#幸福企業2023</span
+              >
+              <span
+                class="bg-secondary-150 px-3 py-1 rounded-full text-gray-600 text-[13px] inline-block"
+                >#新光保全</span
+              >
+            </div>
+          </div>
+        </div>
+        <div class="w-full s:mt-6 l:mt-0">
+          <div
+            v-for="(item, index) in cardv2"
+            :key="item.title"
+            :class="`${index != cardv2.length - 1 && 'mb-6 '} flex gap-4`"
+          >
+            <img :src="item.img" alt="" class="w-[288px] rounded-3xl" />
+
+            <div class="w-full">
+              <p class="text-sm text-gray-600">2023/10/02</p>
+              <h2 class="text-[18px] font-bold mt-1">{{ item.title }}</h2>
+              <p class="text-gray-600 mt-2 mb-5 line-clamp-2">
+                {{ item.text }}
+              </p>
+              <span
+                v-for="(tg, index) in item.tag"
+                :key="index"
+                :class="`${
+                  index == 1 && 'mx-2'
+                } bg-secondary-150 px-3 py-1 rounded-full text-gray-600 text-[13px] inline-block`"
+                >{{ tg }}</span
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="s:hidden pt-7">
+        <Swiper
+          :slides-per-view="1"
+          :effect="'creative'"
+          :modules="[SwiperNavigation, SwiperPagination]"
+          navigation
+          :space-between="40"
+        >
+          <SwiperSlide v-for="item in cardv2" :key="item.title">
+            <div class="w-full">
+              <img :src="item.img" alt="" class="w-full h-full rounded-3xl" />
+            </div>
+
+            <div class="w-full">
+              <p class="text-sm text-gray-600">2023/10/02</p>
+              <h2 class="text-[18px] font-bold mt-1">{{ item.title }}</h2>
+              <p class="text-gray-600 mt-2 mb-5 line-clamp-2">
+                {{ item.text }}
+              </p>
+              <span
+                v-for="(tg, index) in item.tag"
+                :key="index"
+                :class="`${
+                  index == 1 && 'mx-2'
+                } bg-secondary-150 px-3 py-1 rounded-full text-gray-600 text-[13px] inline-block`"
+                >{{ tg }}</span
+              >
+            </div>
           </SwiperSlide>
         </Swiper>
       </div>
@@ -179,130 +319,62 @@
 </template>
 
 <script setup>
-import card1 from "@/assets/images/card1.png";
-import card2 from "@/assets/images/card2.png";
-import card3 from "@/assets/images/card3.png";
-
-const brandCard = reactive([
-  {
-    title: "研發工程師(無經驗可)",
-    address: "新北市土城區",
-    text: "異常分析、良率改善、實驗規劃執行、新產品新材料開發。",
-    company: "燿華電子股份有限公司(Unitech) | 印刷電路板製造業(PCB)",
-    pay: "月薪 36,100 至 43,000 元",
-    pic: "https://happiness-cms.1111.com.tw/images/0/0/MjAyNDAyMjEveW9xR29P",
-  },
-  {
-    title: "海外 - 資訊工程師-日本(馳諾瓦科技)",
-    address: "東北亞日本",
-    text: "1.電腦硬體、軟體維護。   2.VM、機房、網路管理等專業知識與技能。3.能執行Windows作業系統安裝，協助使用者電腦問題之故障排除。4.有操作SAP經驗尤佳",
-    company: "馳諾瓦科技股份有限公司 | 其他電子零組件相關",
-    pay: "面議",
-    pic: "https://happiness-cms.1111.com.tw/images/0/0/MjAyNDAyMjEvNk5jRGdj",
-  },
-  {
-    title: "機電/工務人員(含加班費及津貼)",
-    address: "彰化縣北斗鎮",
-    text: "1.丙級以上之工業配線、室內配線或水電相關之証照2.負責廠內相關水電、空調、生產設備之維修、保養及維護及異常緊急處理 。3.設備維修及保養工作規劃與執行。4.節能改善目標推行。5.主動與各部門進行改善工作協調與溝通。6.其他主管交辦事項。7.不怕高,認真學習, 態度積極, 不畏辛勞, 反應敏捷, 責任感。8.諳電腦文書處理。",
-    company: "海霸王 (好品味生技食品股份有限公司) | 食品製造╱加工",
-    pay: "月薪 28,000 至 35,000 元",
-    pic: "https://happiness-cms.1111.com.tw/images/0/0/MjAyNDAyMjMvck1hUm85",
-  },
-  {
-    title: "生物資訊工程師",
-    address: "新北市汐止區",
-    text: "1.Next Generation Sequencing (Illumina,ion-torrent等平台) 資料 QC 與處理。2.執行並協助開發次世代定序應用之生資分析服務。3.有專案管理經驗者佳。",
-    company: "基龍米克斯生物科技股份有限公司 | 生化科技研發",
-    pay: "面議",
-    pic: "https://happiness-cms.1111.com.tw/images/0/0/MjAyNDAyMjEvRjJFV0px",
-  },
-  {
-    title: "總公司：北區儲備店總監(Global Mall)",
-    address: "新北市板橋區",
-    text: "1.百貨商場/購物中心或其他零售服務相關經營管理10年以上經驗2.招商、營運管理、行銷販促整合管理3.可配合分派至全省分店者",
-    company: "環球購物中心股份有限公司 | 百貨相關",
-    pay: "面議",
-    pic: "https://happiness-cms.1111.com.tw/images/0/0/MjAyNDAyMjEvQXpqWjlm",
-  },
-  {
-    title: "招商主管",
-    address: "高雄市前鎮區",
-    text: "1.品牌開發、招商洽談、合約簽約。2.開業前籌備、規劃、市場分析等相關業務。3.具獨立招商開發、談判能力，包含商業條件、合約簽約，設計施工溝通。4.擬定招商計畫、招募廠商進駐及執行招商業務。5.市場情報情蒐、數據分析、招商定位規劃及業種管理。6.領導教導監督下屬賣場管理、業績管理、廠商活動溝通提案及其他工作執行事項 7.上級主管交辦事項處理及完成。8.面試地點:台北市大同區西寧北路62號",
-    company: "海霸王集團_海霸王餐廳股份有限公司 | 餐廳╱餐館",
-    pay: "面議",
-    pic: "https://happiness-cms.1111.com.tw/images/0/0/MjAyNDAyMjEvb1JCengz",
-  },
-  {
-    title: "宜得利NITORI儲備店長",
-    address: "台北市中正區",
-    text: "宜得利家居為日本的家具、家飾商品連鎖店龍頭。因應2023年擴大展店，現正積極招募對家具家飾業具有高度熱誠之從業人員。如有想更進一步了解宜得利家居，我們會於以下時間辦理企業說明會台北場報名連結：https://www.surveycake.com/s/knW60台中場報名連結：https://www.surveycake.com/s/nlNx1高雄場報名連結：https://www.surveycake.com/s/PyWb7歡迎求職者報名※應徵條件：1.對於家具、家飾商品有極高興趣者。2.須配合全台輪調(調職者享有轉勤租屋補助津貼)。台灣店舖分布地點請參考公司介紹。 3.具零售業、家具家飾產業等相關工作經驗6個月以上者。※工作地點：由公司安排配屬店舖，店舖據點請參考公司網頁。",
-    company: "宜得利家居股份有限公司 | 百貨相關",
-    pay: "月薪 32,000 至 50,000 元",
-    pic: "https://happiness-cms.1111.com.tw/images/0/0/MjAyNDAyMjEvZzhZMFAx",
-  },
-  {
-    title: "※高獎金業務員※挑戰百萬年薪不是夢",
-    address: "桃園市桃園區",
-    text: "工作內容––1..為客戶篩選適合的案件。2.帶客戶看屋。3.簽約相關事宜。工作努力多少就賺多少，自己的薪水無上限，短時間存到一桶金，只有房仲有這樣的機會，只怕自己錯失能賺多更多錢的機會!!歡迎想認真打拼的你加入我們。",
-    company: "中信房屋(加盟店聯合徵才) | 不動產經營╱開發",
-    pay: "論件計酬 5,000 至 500,000 元",
-    pic: "https://happiness-cms.1111.com.tw/images/0/0/MjAyNDAyMTkvMWk1VXFM",
-  },
-  {
-    title: "行銷企劃––加盟總部",
-    address: "台北市中山區",
-    text: "條件:提案與簡報技巧廣告企劃案╱文案撰寫行銷策略擬定實體活動規劃與執行異業合作規劃與執行行銷影片規劃及製作。",
-    company: "中信房屋(加盟店聯合徵才) | 不動產經營╱開發",
-    pay: "面議",
-    pic: "https://happiness-cms.1111.com.tw/images/0/0/MjAyNDAyMTkvMWk1VXFM",
-  },
-  {
-    title: "台南館 客務部 經理",
-    address: "台南市中西區",
-    text: "1.現場服務之運作流程管理，處理顧客抱怨2.教育訓練擬定與督導，制定標準作業流程，設定部門目標3.負責找人、培育人才調配之管理4.具備溝通協調能力，積極正向的工作態度，高度執行力5.良好的外語能力6.部門成本控管、資產庫存管理7.具備五年以上飯店客務部主管經驗",
-    company: "煙波大飯店股份有限公司 | 飯店╱旅館",
-    pay: "面議",
-    pic: "https://happiness-cms.1111.com.tw/images/0/0/MjAyNDAyMTkvTkEzU3Ri",
-  },
-]);
-
 const card = ref([
   {
-    img: card1,
-    title: "從一而終 台隆手創館 給員工不變的幸福信念",
-    text: "台隆手創館大家庭：黃威廉副總經理(後排右四)、陳琪瑛執行長(後排右五)、吳秋月營運長(後排左四)、莊耀華營業經理(後排右三)，暨門市主管群。圖/台隆集團 2023年〈台隆手創館〉連續五年榮獲臺灣服務業大評鑑「居家生...",
-    tag: ["#台隆手創館", "#幸福企業2023", "#企業報導"],
+    img: "https://happiness-cms.1111.com.tw/images/0/0/MjAyNDAyMTkvR2tFUkNh",
+    title: "微風廣場 高額生育津貼 年補助破百萬",
+    company: "微風廣場實業股份有限公司",
+    text: "微風集團設立以來，秉持著「For the Customers」企業理念落實於具體行動，一路走來，在消費者與社會大眾的支持與愛護下成長茁壯。微風集團期許成為全台顧客滿意度第一的購物中心，如同微風企業標語「新奇、High Image的微風」所傳遞的意念，每天提供新奇的商品與服務，讓顧客有賓至如歸的感受，享受購物的樂趣！",
+    tag: ["#幸福企業", "#幸福企業2023", "#微風廣場"],
   },
   {
-    img: card2,
-    title: "MIT資優生慶鴻機電：為你打造幸福職「廠」永續共好",
-    text: "慶鴻副總經理王陳鵬（左）、總經理王陳鴻（右）出席頒獎典禮。圖／慶鴻提供 貫徹職人精神 穩健踏實 創立於1975年的慶鴻",
-    tag: ["#慶鴻機電", "#幸福企業2023", "#企業報導"],
+    img: "https://happiness-cms.1111.com.tw/images/0/0/MjAyNDAyMjAvTWtMaU1V",
+    title: "功學社 品牌高品質 幸福員工是關鍵",
+    company: "功學社教育用品股份有限公司",
+    text: "音樂存於日常，對人們的生活有著很深遠的影響，而有在接觸音樂的人對「功學社」這個品牌一定都不陌生！秉持「誠信、篤實、突破、創新」的理念，從樂器製造到音樂教育，對於音樂的推廣功學社總不遺餘力。",
+    tag: ["#功學社", "#幸福企業2023", "#企業報導"],
   },
   {
-    img: card3,
-    title: "重視人才價值 特雷維科技以幸福職場守護員工",
-    text: "Trevi 粉紅芭比主題迎新party。圖/特雷維科技 TREVI特雷維科技為全球性遊戲開發工作室，產品開發在Web及App上，專注於創",
-    tag: ["#TREVI特雷維科技", "#幸福企業2023", "#企業報導"],
+    img: "https://happiness-cms.1111.com.tw/images/0/0/MjAyNDAyMTkvYm1sNUh2",
+    title: "新光保全打造員工關懷為核心的健康職場環境",
+    company: "台灣新光保全股份有限公司 (新光保全)",
+    text: "新光保全致力發展多元職系與建構友善的職場環境，因應環境快速變化與保全業態的特殊性，如何讓員工隨時隨地可以學習新知，鼓勵員工在集團內跨領域學習，憑藉對產業及組織的熟悉度，發揮更大的潛能，是新光保全不斷努力的目標。",
+    tag: ["#新光保全", "#幸福企業2023", "#企業報導"],
+  },
+  {
+    img: "https://happiness-cms.1111.com.tw/images/0/0/MjAyNDAyMTkvMEZMaE1h",
+    title: "仁寶電腦生育補助6.6萬 優惠托嬰更貼心",
+    company: "仁寶電腦工業股份有限公司",
+    text: "仁寶電腦自1984年創立以來，秉持著對人的重視，公司相信，企業的成功與員工的幸福密不可分，因此，仁寶電腦用心規劃薪資福利項目、創造優質學習成長資源，並為員工打造幸福健康的工作環境，給予同仁個人及其家庭滿滿的溫暖及照顧。",
+    tag: ["#仁寶電腦", "#幸福企業2023", "#企業報導"],
   },
 ]);
-const swiperConfigv2 = ref({
-  breakpoints: {
-    345: {
-      slidesPerView: 1,
-    },
-    768: {
-      slidesPerView: 1,
-    },
-    1024: {
-      slidesPerView: 2,
-    },
-    1850: {
-      slidesPerView: 2,
-    },
+const cardv2 = ref([
+  {
+    img: "https://happiness-cms.1111.com.tw/images/0/0/MjAyNDAyMjAvN1drNjBH",
+    title: "守護海洋生態及環境永續 樂多多集團總動員參與淨灘活動",
+    text: "響應「福智文教基金會」號召發起的全台「用愛環抱海洋，企業淨灘 GO！」活動，樂多多集團動員期下品牌肉多多、狂一鍋、辛韓道、明水然樂等同仁共襄盛舉，一同投入於新北市萬里區下寮海灘的淨灘活動，與臺中清水北堤 9 號風車、高雄林園海洋濕地公園同時舉辦，當日參與淨灘的企業人士及親友總計逾 2,730 位，總計清出廢棄物 4,703 公斤。",
+    tag: ["#ESG", "#幸福企業2023", "#樂多多"],
   },
-});
-
+  {
+    img: "https://happiness-cms.1111.com.tw/images/0/0/MjAyNDAyMjAvSE11VzBs",
+    title: "永續發展深入營運核心 飛宏集團落地ESG與社會共好",
+    text: "擁有50年電源供應器的生產研發經驗的飛宏集團，全球超過6千名員工，不僅擁有強大技術和團隊陣容，滿足各種領域的客戶需求。在永續的目標之下，為客戶提供創新技術、傳承員工專業技能；不只陪客戶成長，更與員工一同找尋自身價值、追求社會共好。",
+    tag: ["#飛宏集團", "#飛宏科技", "#幸福企業2023"],
+  },
+  {
+    img: "https://happiness-cms.1111.com.tw/images/0/0/MjAyNDAyMjAvNE1DVGh3",
+    title: "全台煙波大飯店皆榮獲「金級環保旅館」認證！",
+    text: "國人愛旅行，台灣在今年7月1日起全面啟動一次性備品減量的規定，如何讓「永續環保」存在於每趟旅程中，是觀光旅遊業最大的課題。煙波國際觀光集團旗下所有飯店，於2022年全數榮獲環保署服務業「金級環保旅館」標章，而煙波大飯店花蓮太魯閣－沁海館於同年底獲頒全台首家通過「PAS 2060碳中和」認證之飯店，讓「永續旅遊」不再只是口號，守護台灣角落的在地美好！",
+    tag: ["#煙波", "#幸福企業2023", "#ESG"],
+  },
+  {
+    img: "https://happiness-cms.1111.com.tw/images/0/0/MjAyNDAyMjAvZGNjSVdt",
+    title: "彰銀攜手台電共推ESG 首家數位供應鏈上線",
+    text: "彰化銀行從供應商角度思考，發展創新之供應鏈金流，攜手台電合作推動供應鏈融資平台。此次與台電合作不僅能強化雙方夥伴關係，更能協助供應商解決產銷資金缺口。",
+    tag: ["#彰銀", "#台電", "#ESG", "#幸福企業2023"],
+  },
+]);
 const tag = reactive([
   "#力麗觀光",
   "#三立電視台",
@@ -310,11 +382,40 @@ const tag = reactive([
   "#工研院",
   "#中華電信",
 ]);
-
-const ad = reactive([
-  "https://happiness-cms.1111.com.tw/images/0/0/MjAyNDAzMDQvSXpVNVhS",
-  "https://happiness-cms.1111.com.tw/images/0/0/MjAyNDAzMDQvQmhsdmxP",
-  "https://happiness-cms.1111.com.tw/images/0/0/MjAyNDAzMDQvNzBCbnpW",
-  "https://happiness-cms.1111.com.tw/images/0/0/MjAyNDAzMDQvWmNONFRE",
-]);
 </script>
+
+<style lang="scss" scoped>
+::v-deep {
+  .swiper-button-prev,
+  .swiper-button-next {
+    width: 36px;
+    height: 36px;
+    background-color: #fff;
+    border-radius: 50%;
+    border: 1px solid #dedede;
+    cursor: pointer;
+  }
+  .swiper-button-prev {
+    background-image: url("@/assets/images/leftArrow.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  .swiper-button-next {
+    background-image: url("@/assets/images/rightArrow.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  .swiper-button-disabled {
+    width: 36px;
+    height: 36px;
+    background-color: #f6f6f6;
+    border-radius: 50%;
+    border: 1px solid #d2d2d2;
+  }
+  .swiper-button-prev::after,
+  .swiper-button-next::after {
+    display: none;
+  }
+}
+</style>
