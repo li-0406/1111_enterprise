@@ -16,12 +16,12 @@ export default defineNuxtConfig({
   },
   googleFonts: {
     families: {
-      // 指定您想要的字體
       Roboto: true,
       "Open+Sans": true,
     },
   },
-  // swiper: {
-  //   modules: ["navigation", "pagination", "effect-creative"],
-  // },
+  app: {
+    baseURL: process.env.NODE_ENV === "production" ? "/1111_enterprise/" : "/",
+    buildAssetsDir: "/static/",
+  },
 });

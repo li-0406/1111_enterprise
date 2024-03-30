@@ -356,20 +356,20 @@ const tag = ref([
       },
     ],
   },
-  {
-    name: "品牌報名",
-    show: false,
-    children: [
-      {
-        name: "企業報名",
-        page: "/brand/registration",
-      },
-      {
-        name: "網友推薦",
-        page: "/brand/recommend",
-      },
-    ],
-  },
+  // {
+  //   name: "品牌報名",
+  //   show: false,
+  //   children: [
+  //     {
+  //       name: "企業報名",
+  //       page: "/brand/registration",
+  //     },
+  //     {
+  //       name: "網友推薦",
+  //       page: "/brand/recommend",
+  //     },
+  //   ],
+  // },
   {
     name: "幸福職涯",
     show: false,
