@@ -25,6 +25,7 @@ export default defineNuxtConfig({
     buildAssetsDir: "/static/",
     head: {
       title: "2024 幸福企業",
+      link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
     },
   },
 });
