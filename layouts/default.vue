@@ -155,7 +155,7 @@
     </header>
     <!-- 斷點L以下 -->
     <header
-      class="w-full bg-white px-6 py-7 rounded-b-3xl drop-shadow-lg absolute l:hidden"
+      class="w-full bg-white px-6 py-7 rounded-b-3xl drop-shadow-lg absolute l:hidden z-50"
       v-if="openList"
       @click.stop
     >
@@ -231,7 +231,15 @@
                 :key="index"
                 class="text-sm pl-1"
               >
-                {{ ch.name }}
+                <nuxt-link
+                  :to="ch.page"
+                  @click="
+                    item.show = false;
+                    openList = false;
+                  "
+                >
+                  {{ ch.name }}</nuxt-link
+                >
               </p>
             </div>
           </div>

@@ -77,7 +77,7 @@
         >
       </div>
       <!-- 企業報導 -->
-      <div class="border-b pl-3 flex justify-between items-center">
+      <div class="border-b flex justify-between items-center">
         <div class="border-b-4 border-black">
           <h1 class="text-3xl font-bold">企業報導</h1>
         </div>
@@ -205,7 +205,7 @@
         </Swiper>
       </div>
       <!-- ESG報導 -->
-      <div class="border-b pl-3 flex justify-between items-center pt-24">
+      <div class="border-b flex justify-between items-center pt-24">
         <div class="border-b-4 border-black">
           <h1 class="text-3xl font-bold">ESG報導</h1>
         </div>

@@ -1,6 +1,6 @@
 <template>
   <div class="bg-gradient-to-br from-white to-secondary-100">
-    <div class="container mx-auto pt-14 max-w-screen-w">
+    <div class="container mx-auto pt-14 max-w-screen-w px-4 m:px-8 l:px-0">
       <h1
         class="text-[40px] s:text-5xl flex gap-3 font-bold text-gray-900 mb-5"
       >
@@ -126,7 +126,7 @@
       >
     </div>
     <!-- 搜尋結果 -->
-    <div class="container mx-auto max-w-screen-w">
+    <div class="container mx-auto max-w-screen-w px-4 m:px-8 l:px-0">
       <div class="grid grid-cols-1 m:grid-cols-2 l:grid-cols-3 gap-6">
         <div
           v-for="item in searchData"
