@@ -23,5 +23,8 @@ export default defineNuxtConfig({
   app: {
     baseURL: process.env.NODE_ENV === "production" ? "/1111_enterprise/" : "/",
     buildAssetsDir: "/static/",
+    head: {
+      title: "2024 幸福企業",
+    },
   },
 });
