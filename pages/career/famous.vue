@@ -339,8 +339,6 @@ const ad = reactive([
   "https://happiness-cms.1111.com.tw/images/0/0/MjAyNDAzMDQvWmNONFRE",
 ]);
 const ad2 = reactive([
-  "https://s3-alpha-sig.figma.com/img/5e51/f879/e0e5a90b57315f3dbb07147b4a8c9df9?Expires=1712534400&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=RSGQxa49My31jvqHHEAeKukjScna-tgzfVPBvudzBrWNynEZAWsfynDTnjee5h5mUPnhGemKcBqweV9yZ-8m9LerJV8Ei3ULmRXiU7~C3DoO72xwVwU7z4P2i5CbfFUV60~2~O1bT0MJNwnE5Q9Oz~bx4Mb1M-nrnTmFrpgPk9O~rC8v9mxDwcweOAc-lhh6xS9OPoMWtkX2adpgLKU3i33pCNupsogvXrv9SoKMFXfkD90VHg6ByraLdjGQpE6nZGZLN6oWZV7BZ65IVFquEmGaCpkJ6Q8NN--0erj~y98A6VBptvbPS7jdIrzQoeYkXygfTolrVkMVlkxdaYoR~g__",
-  "https://s3-alpha-sig.figma.com/img/559d/be8d/747da48204ef34700542fa5de819f950?Expires=1712534400&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=RmADaLOeCO1s6SiabNM3XKGmUgUF4l8CoEe0ajdCgTWC60s~Wad3ebj6NeJ-2zg192QLfiMYfhZDZapisKyC~6Hezp7zHtxyzOEri0YQzuLjffHD-KN9P7RwhbL7LoQwUzD-~rgAbvWG2F6VhdzAftf3BlBqB8aDAvy7XlSWdlzfUXfdnm67~BnVBM-JwgZ0joTxDk1zT4TBFElPGhaeay8G~eBsJQxX825ta4km981ILqNO4TxpTBKgPP7ykFBNpNqegpxbVUxaZri96vzDMnkEuPNpZmkREYbofwiQ2pxJIDmK-9nI4ofJ1QHV7ojCyBgyvzo4B4n0Hr2mtLeGXQ__",
   "https://happiness-cms.1111.com.tw/images/0/0/MjAyNDAzMDQvNzBCbnpW",
   "https://happiness-cms.1111.com.tw/images/0/0/MjAyNDAzMDQvWmNONFRE",
 ]);

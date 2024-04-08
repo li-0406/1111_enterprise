@@ -697,7 +697,7 @@ const brandCard = reactive([
       "外場服務人員 ( 凱林鐵板燒 台北101店 )",
       "外場服務人員 ( 中壢大江店 )",
     ],
-    pic: "https://s3-alpha-sig.figma.com/img/4a51/8f23/22c5103f01626d1e1252c6a98e97e7f2?Expires=1711929600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=cksZ7bC-gagJOBB9ZFmVqh8NqqxDCAfPMaMzzqN3Zv1pT6oeA3IldPe2IefCOHJCzxVlKM~gVQyNScwRRDotqqEpM67JjDd98mpvsShmG9HIV92JCEYBYDDcibOCYsAvbTFuAX7IWgKVNs8AwmECvGueTvuYWS32Yns1~Wc8ymSJAui1P0Gb9t3TlZjhvbW48PqdEzwxaRFh7eAY4MmQqNOT7m-0bbVpcmytJHN3TlYTXpWWBsZpUoVKBM~t2OD-BBxt91cU7Z8nT8rpKUdOAnnBTYHDIFNxORgzOjBSyPNjjiL9b0jj4LvDFW3mR86M-UzlK5r8cepsrACfTPI0kA__",
+    pic: "https://happiness-cms.1111.com.tw/images/0/0/MjAyNDAyMjEvaGdXNkhG",
   },
   {
     title: "愛德利亞台灣股份有限公司",
@@ -706,7 +706,7 @@ const brandCard = reactive([
       "LOWRYS FARM 全職服飾銷售人員",
       "LOWRYS FARM 全職服飾銷售人員全職服飾銷售人員(北區專員)",
     ],
-    pic: "https://s3-alpha-sig.figma.com/img/934b/4b16/16c9d8c29a1f7689fba255d749f69c4f?Expires=1711929600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=ckEJ8fYQqwEKZyiQTDLx-6jhHvf2lwBJVFerX2~UCgfyj9krtDYwnQOsdN30xk3F-BcHpwt0ytjZodDrM~E8pQ2aSjfzrP6tNZVTi6WUYiMQGRAmNiUoxC47ru6rOussUOiyqBA-Va9JRw1YhiN21x9woirMJIB5q6Izu3gzJPskS~E84iA4GfH-edKiJVdCv9SwHkRedYEu-oe3cPUYDpIgXPANkvToKyUgzpTcR057TW~QfYg1V56IJWk6wePZOpC14-xh6D2yUGOztfaEvTSZ0tpZbkfVXLhJ0OgxXI0ZK845IBnmlN3Z8BF2JklJQNmOL5B51WiUa2~rEHveWg__",
+    pic: "https://happiness-cms.1111.com.tw/images/0/0/MjAyNDAyMjEvbGlpS09E",
   },
   {
     title: "三商電腦股份有限公司",
@@ -715,7 +715,7 @@ const brandCard = reactive([
       "外勤維護工程師・工服事業部北區服務處北一服務課",
       "維護工程師 ．工服事業部中區服務處新竹服務課",
     ],
-    pic: "https://s3-alpha-sig.figma.com/img/5244/03e5/20a7479341730ecadd74a79953033abc?Expires=1711929600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=XSlOUNtuBTDdwNcIGQUhz7KRqkXMTFh9BKpSOWy0bE2qyhGZGJhEvN34Yk8s6khj5D3eL~dYY~nchVes8xSvi~jQMndgtXbINYMGr5loo8Kf-HoW5pB-~DLp2eeE8ik4yf8wtFFjtf3hz8aiEKEJRTAwyk1GAdmVCT7NV~9ezR5BNU6STh2ARGkwAO33pZsQD7xtIEnNDOJe6C3KiUcIMRStN-ppRSCJLaZvSBy9769WN3Ezbnr4YqmPMdlYP6Vw~V1AdnGDCZeKQwbpXQSe-7vwiyXjSvdoWG81q85a6vZjZFCyC4kwcAp9GKdQHfUrXytaUbMETtQVHmjacJNrZA__",
+    pic: "https://happiness-cms.1111.com.tw/images/0/0/MjAyNDAyMjEvQ0VtR1ND",
   },
   {
     title: "瑞嘉軟體科技股份有限公司",
@@ -724,7 +724,7 @@ const brandCard = reactive([
       "Engineer Assistant / 工程師助理",
       "Senior Product Manager / 資深產品經理",
     ],
-    pic: "https://s3-alpha-sig.figma.com/img/e9b0/25e9/5a0c5740b6485a6eeac7bc9747d3b6d6?Expires=1711929600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=WYx~CBhjS2atcCRJI0Bq5rer2Rm6ouhTi8ry9M7ZGKptse~64gENZ8Qvt46gPe465qCgaEIdSlySyXdbrl42QmTqjB9O5VVDagyCaxbwbZ~J9TBrF78A~PvGWeNe0GZ4wHoyDPf3xDdYMzEmGtQk-8OjbQIwtcJWmx0LmZS-V7dBF87GdJqL6jrgvEDyg3~61AjkfHR-kTSKKipvDcp636JfXkycdKFoBOphlvqOjx5lekq3~FjH-qgnLHRuUxy9OGlH2X9htvSXz4uCrqVuoKqrEhiBXlS1s5f7cYtoEOoG5qEHagk04OVmkG36KY5h~CjPzthlL-4sY02YJSG2Zw__",
+    pic: "https://happiness-cms.1111.com.tw/images/0/0/MjAyNDAyMjEvMjBqbXJl",
   },
   {
     title: "微風廣場實業股份有限公司",
@@ -733,7 +733,7 @@ const brandCard = reactive([
       "外場服務人員 / 儲備幹部 / 副店長 /店長",
       "內場廚助 / 廚師 / 副主廚 / 主廚",
     ],
-    pic: "https://s3-alpha-sig.figma.com/img/a675/eb0c/28f93bfda456b78fb8ef64d1e5d7ccd9?Expires=1711929600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=pFNvEbPhVJqsLtFTHNNkxy~ZpGL7cTn9qKtckIRyZwiJkVR3SbrjUVkA81~L8eiIHPAifw1c17WKDIVXVJXmc5xEggYH-ziBSjTL3iuj3C73xLlWXlHPo9K2ELXYjYL8DThqXDmYk5Y7veHQNoQNrk6CdQNdmR4PEh~UMUjsgkes3MAGHqmdy4reUJ3cec4iD07mkkLBDIt7ODkrgjy4XPW7SW8RUgh17QXXDft8qbKC5MJSd9UxCh9a0xX6Xqsgk9P8uBNuVDAJV8b-Hul3tLyy-xZodD4FuQgCHFEthW2sRt8TURnzfRl9FRc7Sm7EJEWvyncdl2~sZySI-yLf7A__",
+    pic: "https://happiness-cms.1111.com.tw/images/0/0/MjAyNDAyMjEvSlNCeVJq",
   },
   {
     title: "樂子國際股份有限公司",
@@ -742,7 +742,7 @@ const brandCard = reactive([
       "【樂子南港店－外場正職】月薪32,000起",
       "【樂子信義店－內場廚師】月薪46,000起",
     ],
-    pic: "https://s3-alpha-sig.figma.com/img/bc62/aa7b/4d83d42e08954f483a5d02fbd7153727?Expires=1711929600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=nzHiPj4rhAr-A2wPBjsFjVuHgyYznV2gYMu0A418as0V7MlVIjjJeceI60uZY7CGcSeAY97s8CGCxF3rXjcmuNbBmH7VsTN~bSX-JnDmcE90Pn7TUjO8Pu5owV4ffCuKlo9ZddO15eVbt3SbNRJHimTVr2I09DecJnPo8GvANm4Us2VlM0KFvd3-lBex3QO5InaSM7opJFyXOknXPEU4waeK0h-Zn2K6jUty53ALwOd51lIf342WA~Zivo8coW7fMvaiaUfbR~WKvsJeSFcd6LyOAKpw2sZOr4zneV8qMJagOm7B0EHV3Q9Nn9mi-HbxAaMBU-iyyjLYd-TO2qhbgA__",
+    pic: "https://happiness-cms.1111.com.tw/images/0/0/MjAyNDAyMjEvUkIyS2Rq",
   },
 ]);
 </script>
